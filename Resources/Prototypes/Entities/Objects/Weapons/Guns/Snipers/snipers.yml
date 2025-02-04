@@ -46,6 +46,16 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+  - type: Gun
+    useKey: false
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -125
+    damage:
+      types:
+        Blunt: 5
+        Slash: 8
+  - type: GunRequiresWield
 
 - type: entity
   name: Hristov
