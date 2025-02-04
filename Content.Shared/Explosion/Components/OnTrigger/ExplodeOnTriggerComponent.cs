@@ -8,4 +8,6 @@ namespace Content.Shared.Explosion.Components.OnTrigger;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ExplodeOnTriggerComponent : Component
 {
+    [DataField(required: false)]
+    public double? Chance = null;
 }

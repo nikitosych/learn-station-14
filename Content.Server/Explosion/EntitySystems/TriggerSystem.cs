@@ -169,6 +169,11 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void HandleExplodeTrigger(EntityUid uid, ExplodeOnTriggerComponent component, TriggerEvent args)
         {
+            var rnd = _random.NextDouble();
+            if (component.Chance != null && rnd >= component.Chance)
+            {
+                return;
+            }
             _explosions.TriggerExplosive(uid, user: args.User);
             args.Handled = true;
         }
