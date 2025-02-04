@@ -1,3 +1,5 @@
+using System;
+using System.Security.Cryptography;
 using Content.Shared.Audio;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
@@ -18,6 +20,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Sound;
@@ -27,13 +30,13 @@ namespace Content.Shared.Sound;
 /// </summary>
 [UsedImplicitly]
 public abstract class SharedEmitSoundSystem : EntitySystem
-{
+{   
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefMan = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
-    [Dependency] private   readonly SharedAmbientSoundSystem _ambient = default!;
-    [Dependency] private   readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
@@ -50,8 +53,8 @@ public abstract class SharedEmitSoundSystem : EntitySystem
         SubscribeLocalEvent<EmitSoundOnDropComponent, DroppedEvent>(OnEmitSoundOnDrop);
         SubscribeLocalEvent<EmitSoundOnInteractUsingComponent, InteractUsingEvent>(OnEmitSoundOnInteractUsing);
         SubscribeLocalEvent<EmitSoundOnUIOpenComponent, AfterActivatableUIOpenEvent>(HandleEmitSoundOnUIOpen);
-
         SubscribeLocalEvent<EmitSoundOnCollideComponent, StartCollideEvent>(OnEmitSoundOnCollide);
+        SubscribeLocalEvent<EmitSoundRandomOnUseComponent, UseInHandEvent>(OnEmitRandomSound);
 
         SubscribeLocalEvent<SoundWhileAliveComponent, MobStateChangedEvent>(OnMobState);
     }
@@ -108,6 +111,29 @@ public abstract class SharedEmitSoundSystem : EntitySystem
         if (component.Handle)
             args.Handled = true;
     }
+    private void OnEmitRandomSound(EntityUid uid, EmitSoundRandomOnUseComponent component, UseInHandEvent args)
+    {
+        if (!_netMan.IsServer) // Убеждаемся, что код выполняется только на сервере
+            return;
+
+        component.Sound = new SoundCollectionSpecifier(component.Collections[Random.Next(component.Collections.Count)]);
+
+        if (component.Positional)
+        {
+            var coords = Transform(uid).Coordinates;
+            if (_netMan.IsClient) { _audioSystem.PlayPredicted(component.Sound, coords, args.User); }
+            else if (_netMan.IsServer) { _audioSystem.PlayPvs(component.Sound, coords); }
+        }
+        else
+        {
+            _audioSystem.PlayPredicted(component.Sound, uid, args.User);
+        }
+
+        if (component.Handle)
+            args.Handled = true;
+    }
+
+
 
     private void OnEmitSoundOnThrown(EntityUid uid, BaseEmitSoundComponent component, ref ThrownEvent args)
     {
@@ -140,6 +166,7 @@ public abstract class SharedEmitSoundSystem : EntitySystem
             TryEmitSound(ent, ent.Comp, args.User);
         }
     }
+
     protected void TryEmitSound(EntityUid uid, BaseEmitSoundComponent component, EntityUid? user=null, bool predict=true)
     {
         if (component.Sound == null)

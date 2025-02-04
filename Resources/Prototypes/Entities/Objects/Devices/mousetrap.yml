@@ -40,15 +40,13 @@
     - type: Fixtures
       fixtures:
         slips:
-          shape:
-            !type:PhysShapeAabb
+          shape: !type:PhysShapeAabb
             bounds: "-0.2,-0.2,0.2,0.2"
           hard: false
           layer:
             - LowImpassable
         fix1:
-          shape:
-            !type:PhysShapeAabb
+          shape: !type:PhysShapeAabb
             bounds: "-0.2,-0.2,0.2,0.2"
           density: 30
           mask:
