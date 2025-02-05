@@ -2,6 +2,3 @@
 	path = RobustToolbox
 	url = https://github.com/space-wizards/RobustToolbox.git
 	branch = master
-[submodule "Resources/Locale/pl-PL"]
-	path = Resources/Locale/pl-PL
-	url = https://github.com/nikitosych/pl-PL.git
