@@ -1,4 +1,3 @@
-
 # -- Start of F:\Developing\dotnet\SS14\learn-station-14\Resources\Locale\en-US\connection-messages.ftl --
 cmd-whitelistadd-desc = Adds the player with the given username to the server whitelist.
 cmd-whitelistadd-help = Usage: whitelistadd <username or User ID>
