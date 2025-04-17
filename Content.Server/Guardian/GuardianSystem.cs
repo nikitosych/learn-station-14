@@ -139,8 +139,29 @@ namespace Content.Server.Guardian
 
         private void OnGuardianAttackAttempt(EntityUid uid, GuardianComponent component, AttackAttemptEvent args)
         {
-            if (args.Cancelled || args.Target != component.Host)
+            if (args.Cancelled && args.Target != component.Host)
+            {
+                if (TryComp<ContainerManagerComponent>(args.Target, out var comp))
+                {
+                    if (comp.Containers.TryGetValue("entity_storage", out var storage))
+                    {
+                        foreach (var ent in storage.ContainedEntities)
+                        {
+                            Log.Debug($"[OGAA] {ToPrettyString(ent)}");
+                        }
+                    }
+                    else if (comp.Containers.TryGetValue("mech-pilot-slot", out var pilot))
+                    {
+                        foreach (var ent in pilot.ContainedEntities)
+                        {
+                            Log.Debug($"[OGAA] {ToPrettyString(ent)}");
+                        }
+                    }
+                }
                 return;
+            }
+
+            
 
             // why is this server side code? This should be in shared
             _popupSystem.PopupCursor(Loc.GetString("guardian-attack-host"), uid, PopupType.LargeCaution);
