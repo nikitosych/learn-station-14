@@ -6,7 +6,7 @@ alert-level-unknown = Nieznany.
 alert-level-unknown-instructions = Nieznane.
 
 alert-level-green = Zielony
-alert-level-green-announcement = Możesz teraz bezpiecznie powrocic do swojego stanowiska pracy.
+alert-level-green-announcement = Członkowie załogi mogą teraz bezpiecznie powrócić do swojego stanowiska pracy.
 alert-level-green-instructions = Rób swoją pracę.
 
 alert-level-blue = Niebieski
@@ -24,7 +24,7 @@ alert-level-red-instructions = Członkowie załogi muszą znaleźć bezpieczne s
 alert-level-violet = Fioletowy
 alert-level-violet-announcement = Istnieje zagrożenie wirusowe na stacji. Dział medyczny powinien izolować członków załogi z jakimikolwiek objawami.
     Członkowie załogi zachowywać biezpieczny dystans do innych i stosować środki ostrożności, aby zapobiec dalszemu rozpowszechnianiu się zagrożenia.
-alert-level-violet-instructions = Członkowie załogi zachowywać biezpieczny dystans do innych i stosować środki ostrożności, aby zapobiec dalszemu rozpowszechnianiu się zagrożenia.
+alert-level-violet-instructions = Załodze zaleca się zachowywać biezpieczny dystans do innych i stosować środki ostrożności, aby zapobiec dalszemu rozpowszechnianiu się zagrożenia.
 
 alert-level-yellow = Żółty
 alert-level-yellow-announcement = Wystąpiło zagrożenie strukturalne lub atmosferyczne na stacji. Personel techniczny powinien niezwłocznie działać i podejmować środki bezpieczeństwa.
@@ -32,7 +32,7 @@ alert-level-yellow-announcement = Wystąpiło zagrożenie strukturalne lub atmos
 alert-level-yellow-instructions = Członkom załogi zaleca się unikać zagrożonych stref lub pozostać przy swoich stanowiskach, jeśli będzie to konieczne.
 
 alert-level-gamma = Gamma
-alert-level-gamma-announcement = Centralne Dowództwo zarządziło poziom bezpieczeństwa Gamma na stacji. Ochrona ma być uzbrojona przez cały czas. Wszyscy cywile powinni natychmiast udać się do najbliższego przełożonego w celu przetransportowania się do bezpiecznej lokalizacji.
+alert-level-gamma-announcement = Centralne Dowództwo zarządziło poziom bezpieczeństwa Gamma na stacji. Ochrona przez cały czas ma być uzbrojona. Wszyscy cywile powinni natychmiast udać się do najbliższego przełożonego w celu przetransportowania się do bezpiecznej lokalizacji.
 alert-level-gamma-instructions = Wszyscy cywile powinni natychmiast udać się do najbliższego przełożonego w celu przetransportowania się do bezpiecznej lokalizacji.
 
 alert-level-delta = Delta
@@ -41,5 +41,5 @@ alert-level-delta-instructions = Załodze zaleca się śłuchania poleceń dowó
 
 alert-level-epsilon = Epsilon
 alert-level-epsilon-announcement = Centralne Dowództwo ogłosiło poziom Epsilon.
-    Wszystkie kontrakty zostały zerwane.  
-alert-level-epsilon-instructions = Wszystkie kontrakty zostały zerwane.
+    Wszystkie kontrakty zostały zlikwidowane.
+alert-level-epsilon-instructions = Wszystkie kontrakty zostały zlikwidowane.
