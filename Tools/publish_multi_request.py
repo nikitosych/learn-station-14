@@ -40,8 +40,8 @@ def main():
     headers = {
         "Content-Type": "application/json"
     }
-    resp = session.post(f"{ROBUST_CDN_URL}fork/{fork_id}/publish/start", json=data, headers=headers)
-    resp.raise_for_status()
+    post_with_logging(session, f"{ROBUST_CDN_URL}fork/{fork_id}/publish/start", json=data, headers=headers)
+
     print("Publish successfully started, adding files...")
 
     for file in get_files_to_publish():
@@ -52,9 +52,7 @@ def main():
                 "Robust-Cdn-Publish-File": os.path.basename(file),
                 "Robust-Cdn-Publish-Version": VERSION
             }
-            resp = session.post(f"{ROBUST_CDN_URL}fork/{fork_id}/publish/file", data=f, headers=headers)
-
-        resp.raise_for_status()
+            post_with_logging(session, f"{ROBUST_CDN_URL}fork/{fork_id}/publish/file", data=f, headers=headers)
 
     print("Successfully pushed files, finishing publish...")
 
@@ -64,11 +62,28 @@ def main():
     headers = {
         "Content-Type": "application/json"
     }
-    resp = session.post(f"{ROBUST_CDN_URL}fork/{fork_id}/publish/finish", json=data, headers=headers)
-    resp.raise_for_status()
+    
+    post_with_logging(session, f"{ROBUST_CDN_URL}fork/{fork_id}/publish/finish", json=data, headers=headers)
 
     print("SUCCESS!")
 
+def post_with_logging(session: requests.Session, url: str, **kwargs) -> requests.Response:
+    resp = session.post(url, **kwargs)
+    print(f"\nHTTP {resp.status_code} for {url}")
+    print("Response headers:")
+    for k, v in resp.headers.items():
+        print(f"  {k}: {v}")
+    try:
+        print("Response JSON:")
+        print(resp.json())
+    except ValueError:
+        print("Response text:")
+        print(resp.text)
+
+    if not resp.ok:
+        resp.raise_for_status()
+
+    return resp
 
 def get_files_to_publish() -> Iterable[str]:
     for file in os.listdir(RELEASE_DIR):
