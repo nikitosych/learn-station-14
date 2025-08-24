@@ -119,3 +119,6 @@ alerts-rooted-desc = Jesteś przytwierdzony do ziemi. Nie możesz się poślizgn
 
 alerts-stealthy-name = Kieszonkowiec
 alerts-stealthy-desc = Czy aktualnie dokonujesz kieszonkowania. Kliknij, aby przełączyć.
+
+
+TEST TEST
