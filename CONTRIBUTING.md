@@ -187,7 +187,7 @@ Duże nowe funkcjonalności oraz kompleksowe przeróbki istniejących, rozbudowa
 
 # Często Zadawane Pytania
 
-#### 1. Mam już forka SS14 na swoim profilu, więc GitHub nie pozwala mi utworzyć forka PS14. Jak mogę to obejść?
+## 1. Mam już forka SS14 na swoim profilu, więc GitHub nie pozwala mi utworzyć forka PS14. Jak mogę to obejść?
 
 Rzeczywiście, zgodnie z zasadami GitHuba, w profilu może znajdować się _tylko jeden_ fork danego repozytorium.
 Aby to obejść, powinieneś mieć jeden **wspólny fork**, na którym będziesz pracować z różnymi repozytoriami.
@@ -245,6 +245,9 @@ $ git reset --hard polonium/master
 HEAD is now at 3c38b14144 Tłumaczenie HUD/UI (#15)
 ```
 
+⚪ Polecenie `git reset --hard` usuwa wszystkie lokalne zmiany i ustawia gałąź dokładnie w tym samym stanie, co polonium/master.
+Dzięki temu możesz szybko pobrać najnowsze aktualizacje, jeśli lokalnie nie wprowadzałeś własnych zmian.
+
 5. Wyślij nową gałąź na GitHub:
 
 ```bash
@@ -269,6 +272,66 @@ branch 'new-feature' set up to track 'origin/new-feature'.
 
 ✅ Gotowe! Teraz możesz wprowadzać potrzebne zmiany i utworzyć Pull Request do PS14 z czystą historią commitów.
 
+## 2. Jak pracować z repozytorium, aby wprowadzać zmiany?
+
+Można podejść do tego na dwa sposoby - w zależności od tego, jakie masz doświadczenie i jakie repozytoria już posiadasz. Dla ułatwienia podzieliliśmy to na poziomy trudności.
+
+### Poziom 1 – Podstawowy (edycja FTL/YAML w web-edytorze GitHub)
+
+Ten sposób polecamy, jeśli dopiero zaczynasz i chcesz zmienić coś prostego (np. tłumaczenie FTL, lekkie zmiany w YML). Wszystko możesz zrobić w przeglądarce, bez znajomości Gita.
+
+Kroki:
+
+#### 1. **Zrób forka repozytorium (jeśli jeszcze go nie masz).**
+
+Na stronie głównej repozytorium kliknij przycisk Fork w prawym górnym rogu -> **"Create Fork"**.
+
+![1](https://github.com/user-attachments/assets/77617856-2bf3-480e-9fcd-0b9f680e7fbe)
+
+#### 2. **Edytuj pliki w forku.**
+
+-   Wejdź w interesujący cię plik `.ftl` lub `.yml`, kliknij ikonę ołówka (✏️) i dokonaj zmian.
+-   Zapisz zmiany poprzez Commit changes.
+
+![2](https://github.com/user-attachments/assets/3a36894c-5eb1-4cca-9713-1cb12dc7d1d4)
+
+-   Zrób to dla każdego pliku, który chcesz zmienić.
+
+#### 3. **Przejdź do oryginalnego repozytorium (polonium14/polonium-station).**
+
+-   Kliknij zakładkę Pull Requests i wybierz opcję utworzenia nowego.
+
+![3](https://github.com/user-attachments/assets/c7fd6ead-37fa-4391-acb9-b20a5e89fcca)
+
+#### 4. **Wybierz źródło i cel PRa.**
+
+-   Upewnij się, że źródłem jest twój fork, a celem – nasze repozytorium (gałąź master).
+
+![4](https://github.com/user-attachments/assets/97f7d2a1-1697-4191-9d27-b0dc5350da34)
+
+#### 5. **Wypełnij formularz Pull Requesta zgodnie ze wzorem (tytuł, opis zmian, powód, ewentualne dodatkowe informacje).**
+
+Po wysłaniu PR trafi do nas do sprawdzenia. Jeśli wszystko będzie w porządku, zostanie scalony i twoje zmiany pojawią się w głównym repozytorium 🎉
+
+### Poziom 2 – Zaawansowany (praca lokalna, brak drugiego forka)
+
+Ten sposób sprawdza się wtedy, gdy:
+
+-   masz już forka innego repozytorium (np. SS14),
+-   chcesz pracować nie tylko nad tłumaczeniami, ale też nad kodem lub większymi zmianami,
+-   potrzebujesz pełnej kontroli nad gałęziami i historią commitów.
+
+W takim przypadku postępujesz zgodnie z procedurą z [tego punktu](https://github.com/polonium14/polonium-station/blob/master/CONTRIBUTING.md#1-mam-ju%C5%BC-forka-ss14-na-swoim-profilu-wi%C4%99c-github-nie-pozwala-mi-utworzy%C4%87-forka-ps14-jak-mog%C4%99-to-obej%C5%9B%C4%87).
+
+**Najważniejsze kroki:**
+
+1. Tworzysz nową gałąź,
+2. Resetujesz ją do stanu `master` repozytorium głównego (PS14),
+3. Pracujesz tylko na tej czystej historii,
+4. Wysyłasz gałąź na swojego forka i robisz Pull Request.
+
+Dzięki temu unikasz bałaganu w commitach i możesz spokojnie pracować równolegle nad różnymi projektami.
+
 ---
 
 W razie jakichkolwiek pytań lub sugestii zapraszamy na nasz [Discord](https://discord.gg/AnCVTJEmnN) :)
@@ -278,7 +341,3 @@ Zaleca się również zapoznanie z [poradnikiem Slartiego](https://hackmd.io/@Sl
 ---
 
 _Te konwecje zostały opracowane na podstawie [zasad](https://docs.spacestation14.com/en/general-development/codebase-info.html) zdefiniowanych przez Wizardów (uzupełnione/przetłumaczone/skrócone)_
-
-```
-
-```
