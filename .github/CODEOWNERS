@@ -9,6 +9,7 @@
 /Resources/ServerInfo/Guidebook/ServerRules/ @crazybrain23
 
 /Resources/Prototypes/Maps/** @Emisse @ArtisticRoomba
+/Resources/Prototypes/Maps/Shuttles/Shuttle_GROM.yml @qazmlp
 
 /Resources/Prototypes/Body/ @DrSmugleaf # suffering
 /Resources/Prototypes/Entities/Mobs/Player/ @DrSmugleaf
@@ -36,3 +37,30 @@
 /Content.*/NPC @metalgearsloth
 /Content.*/Shuttles @metalgearsloth
 /Content.*/Weapons @metalgearsloth
+
+# Kontrybutorzy tłumaczeń: kromekj, pinkscreen, nikitosych, Szymon-Bielicki (BeziRoche), Tofi-Dev
+
+Resources/Textures/Interface/Alerts/borg_alive.rsi/health0.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/borg_alive.rsi/health1.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/borg_alive.rsi/health2.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/borg_alive.rsi/health3.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/borg_alive.rsi/health4.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/human_alive.rsi/health0.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/human_alive.rsi/health1.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/human_alive.rsi/health2.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/human_alive.rsi/health3.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/human_alive.rsi/health4.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/human_crew_monitoring.rsi/alive.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/human_crew_monitoring.rsi/critical.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/human_crew_monitoring.rsi/dead.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/human_crew_monitoring.rsi/health0.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/human_crew_monitoring.rsi/health1.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/human_crew_monitoring.rsi/health2.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/human_crew_monitoring.rsi/health3.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/human_crew_monitoring.rsi/health4.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/human_critical.rsi/critical.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/human_dead.rsi/dead.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/internals.rsi/internal0.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/internals.rsi/internal1.png @Tofi-Dev
+Resources/Textures/Interface/Alerts/internals.rsi/internal2.png @Tofi-Dev
+
