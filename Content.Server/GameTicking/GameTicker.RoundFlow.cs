@@ -681,12 +681,12 @@ namespace Content.Server.GameTicking
                 SendStatusToAll();
                 UpdateInfoText();
 
-                // Polonium - jest to TYMCZASOWE rozwiązanie
-                // TODO: usunąć to po zmergowaniu https://github.com/space-wizards/space-station-14/pull/39809
+                var ev = new RoundRestartingEvent();
 
-                _voteManager.CreateStandardVote(null, StandardVoteType.Map);
-                _voteManager.CreateStandardVote(null, StandardVoteType.Preset);
-                
+                // Polonium-specific: Auto voting
+
+                RaiseLocalEvent(ref ev);
+
                 ReqWindowAttentionAll();
             }
         }
