@@ -11,16 +11,11 @@ public sealed class UUIDControl : BoxContainer
 
     public UUIDControl()
     {
-        var cfg = IoCManager.Resolve<IConfigurationManager>();
-
         var buttons = new BoxContainer
         {
             Orientation = LayoutOrientation.Horizontal,
         };
         AddChild(buttons);
-
-        if (!cfg.GetCVar(CCVars.ShowUUIDButton))
-            return;
 
         var uuidButton = new Button
         {
