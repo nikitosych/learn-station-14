@@ -67,7 +67,7 @@
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4
   - type: Stamina
-    baseCritThreshold: 500
+    critThreshold: 500
   - type: Appearance
   - type: Bloodstream
     bloodReagent: FluorosulfuricAcid
@@ -131,7 +131,6 @@
     Blunt: 1.4
     Slash: 1.0
     Piercing: 1.8
-    ArmorPiercing: 1.8
     Heat: 3.2
     Shock: 3.6
     Poison: 0.0
@@ -145,8 +144,7 @@
   coefficients:
     Blunt: 1.0
     Slash: 0.6
-    Piercing: 0.8
-    ArmorPiercing: 1.4
+    Piercing: 1.4
     Heat: 3.6
     Shock: 3.2
     Poison: 0.0
@@ -157,7 +155,6 @@
 
 - type: nameIdentifierGroup
   id: Xeno
-  format: name-identifier-format-xeno
   minValue: 333
   maxValue: 999
 
@@ -296,7 +293,7 @@
       0: Alive
       600: Dead
   - type: Stamina
-    baseCritThreshold: 1500
+    critThreshold: 1500
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.8
     baseSprintSpeed : 4.5
@@ -320,8 +317,8 @@
   - type: Spider
     webPrototype: XenoWeed
     webAction: XenoWeedsAction
-    customActionSuccessLocMessage: xeno-web-action-success
-    customActionFailLocMessage: xeno-web-action-fail
+    customActionSuccessMessage: xeno-web-action-success
+    customActionFailMessage: xeno-web-action-fail
   - type: PointLight
     radius: 9
   - type: NameIdentifier
@@ -409,7 +406,7 @@
       behaviors:
       - !type:GibBehavior { }
   - type: Stamina
-    baseCritThreshold: 1000
+    critThreshold: 1000
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.8
     baseSprintSpeed : 4.5
@@ -430,8 +427,8 @@
   - type: Spider
     webPrototype: XenoWeed
     webAction: XenoWeedsAction
-    customActionSuccessLocMessage: xeno-web-action-success
-    customActionFailLocMessage: xeno-web-action-fail
+    customActionSuccessMessage: xeno-web-action-success
+    customActionFailMessage: xeno-web-action-fail
   - type: PointLight
     radius: 9
   - type: NameIdentifier
@@ -550,7 +547,7 @@
       0: Alive
       150: Dead
   - type: Stamina
-    baseCritThreshold: 200
+    critThreshold: 200
   - type: SlowOnDamage
     speedModifierThresholds:
       100: 0.8
@@ -568,8 +565,8 @@
   - type: Spider
     webPrototype: XenoWeed
     webAction: XenoWeedsAction
-    customActionSuccessLocMessage: xeno-web-action-success
-    customActionFailLocMessage: xeno-web-action-fail
+    customActionSuccessMessage: xeno-web-action-success
+    customActionFailMessage: xeno-web-action-fail
   - type: NameIdentifier
     group: Xeno
   - type: Speech
@@ -745,7 +742,7 @@
       0: Alive
       140: Dead
   - type: Stamina
-    baseCritThreshold: 250
+    critThreshold: 250
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 7.0
@@ -816,7 +813,7 @@
       0: Alive
       150: Dead
   - type: Stamina
-    baseCritThreshold: 250
+    critThreshold: 250
   - type: ItemToggle
     activated: false
   - type: ComponentToggler
@@ -919,7 +916,7 @@
       behaviors:
       - !type:GibBehavior { }
   - type: Stamina
-    baseCritThreshold: 2000
+    critThreshold: 2000
   - type: MovementSpeedModifier
     baseWalkSpeed : 2
     baseSprintSpeed : 4
@@ -1568,7 +1565,6 @@
         Burn: -20
         Airloss: -30
     bloodlossModifier: -20
-    healBleedsThreshold: 30
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:
@@ -1870,6 +1866,20 @@
   rotation: Fixed
   fx: EffectRCDConstruct2
 
+- type: rcd
+  id: XenoTurret
+  category: WallsAndFlooring
+  sprite:
+    sprite: Objects/Weapons/Guns/Turrets/xenoturret.rsi
+    state: acid_turret
+  mode: ConstructObject
+  prototype: WeaponTurretXeno
+  cost: 12
+  delay: 4
+  collisionMask: InteractImpassable
+  rotation: Fixed
+  fx: EffectRCDConstruct4
+
 # Polonium Start
 
 - type: entity
@@ -1883,7 +1893,7 @@
     availablePrototypes:
     - XenoWall
     - XenoDoor
-    - WeaponTurretXeno
+    - XenoTurret
     successSound: /Audio/_bm/Effects/Xeno/alien_resin_build2.ogg
 
 # Polonium End
@@ -1986,6 +1996,7 @@
   - type: InstantAction
     itemIconStyle: NoItem
     event: !type:PolymorphActionEvent
+      protoId: EggToLarva
 
 - type: polymorph
   id: EggToLarva

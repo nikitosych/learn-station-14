@@ -19,8 +19,11 @@ public sealed partial class ActionGunComponent : Component
     /// <summary>
     /// Action to create, must use <see cref="ActionGunShootEvent"/>.
     /// </summary>
+    /// <summary>
+    /// When set with <see cref="GunProto"/>, spawns one action and one gun. Otherwise use <see cref="Actions"/>.
+    /// </summary>
     [DataField]
-    public EntProtoId Action = string.Empty;
+    public EntProtoId? Action;
 
     [DataField, AutoNetworkedField]
     public EntityUid? ActionEntity;
@@ -30,7 +33,7 @@ public sealed partial class ActionGunComponent : Component
     /// Deleted when this component is removed.
     /// </summary>
     [DataField]
-    public EntProtoId GunProto = string.Empty;
+    public EntProtoId? GunProto;
 
     [DataField, AutoNetworkedField]
     public EntityUid? Gun;

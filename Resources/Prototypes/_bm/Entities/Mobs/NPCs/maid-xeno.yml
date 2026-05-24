@@ -59,10 +59,8 @@
   - type: Stamina
   - type: Appearance
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 0.1
+    bloodReagent: FluorosulfuricAcid
+    bloodMaxVolume: 200
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false

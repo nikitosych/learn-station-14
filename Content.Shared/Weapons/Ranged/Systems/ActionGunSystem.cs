@@ -42,11 +42,11 @@ public sealed class ActionGunSystem : EntitySystem
         if (_net.IsClient)
             return;
 
-        if (!string.IsNullOrEmpty(ent.Comp.Action) &&
-            !string.IsNullOrEmpty(ent.Comp.GunProto))
+        if (ent.Comp.Action is { } singleAction && !string.IsNullOrEmpty(singleAction.Id) &&
+            ent.Comp.GunProto is { } singleGunProto && !string.IsNullOrEmpty(singleGunProto.Id))
         {
-            _actions.AddAction(ent, ref ent.Comp.ActionEntity, ent.Comp.Action);
-            ent.Comp.Gun = SpawnGunInContainer(ent.Comp.GunProto, ent.Owner);
+            _actions.AddAction(ent, ref ent.Comp.ActionEntity, singleAction);
+            ent.Comp.Gun = SpawnGunInContainer(singleGunProto, ent.Owner);
         }
 
         foreach (var (action, gunProto) in ent.Comp.Actions)
