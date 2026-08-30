@@ -12,7 +12,6 @@ uplink-encryption-key-name = Klucze Szyfrujące Syndykatu
 uplink-encryption-key-desc = Dwa klucze szyfrujące umożliwiające dostęp do tajnej częstotliwości naszych specjalnych agentów. Przekaż zapasowy przyjacielowi, ale upewnij się, że nie wpadnie w ręce wroga.
 uplink-binary-translator-key-name = Klucz Tłumacza Binarnych
 uplink-binary-translator-key-desc = Pozwala na dostęp do binarnego kanału silikonów. Nie rozmawiaj na nim jednak, przynajmniej nie bez maski głosowej.
-# Misc
 uplink-cyberpen-name = Długopis Cybersun
 uplink-cyberpen-desc = Długopis działu prawnego Cybersun, nieoceniony do fałszowania dokumentów i ucieczki z więzień. Pachnie nieco twardym światłem i wojennym zyskiem.
 uplink-decoy-disk-name = Fałszywy Dysk Nuklearny
@@ -25,3 +24,7 @@ uplink-travel-camera-name = Aparat Podróżny
 uplink-travel-camera-desc = Ogłuszaj ludzi swoimi umiejętnościami fotograficznymi i legalną lampą błyskową aparatu. Sprawia, że wyglądasz jak turysta.
 uplink-smuggler-satchel-name = Torba Przemytnika
 uplink-smuggler-satchel-desc = Poręczna, podejrzanie wyglądająca torba. Wystarczająco płaska, aby zmieścić się pod panelami podłogowymi.
+
+uplink-weighted-coin-name = Weighted Coin
+
+uplink-weighted-coin-desc = A special coin that always lands on tails, designed to look like the heads and tails coins found in nanotrasen stations.

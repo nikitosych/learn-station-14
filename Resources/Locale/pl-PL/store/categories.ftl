@@ -11,8 +11,8 @@ store-category-implants = Implanty
 store-category-allies = Sojusznicy
 store-category-job = Praca
 store-category-wearables = Wyposażenie
-store-category-pointless = Bezsensowne
 store-discounted-items = Wyprzedaż!
+store-category-pointless = Bezsensowne
 # Revenant
 store-category-abilities = Umiejętności
 # Wizard
@@ -21,3 +21,15 @@ store-caregory-spellbook-defensive = Defensive Spells
 store-caregory-spellbook-utility = Utility Spells
 store-caregory-spellbook-equipment = Wizard Equipment
 store-caregory-spellbook-events = Event Spells
+
+store-category-objective = Objective
+
+# Nukie Delivery
+store-category-nukie-delivery = Offers
+
+# Changeling
+store-category-combat = Combat
+
+store-category-utility = Utility
+
+store-category-stealth = Stealth

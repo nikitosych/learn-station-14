@@ -10,7 +10,6 @@ forensic-scanner-report-title = Forensics Report: { $entity }
 forensic-pad-unused = It hasn't been used.
 forensic-pad-sample = It has a sample: { $sample }
 forensic-pad-no-access-due = Can't access the fingerprint due to { $entity }.
-forensic-pad-gloves = { CAPITALIZE($target) } is wearing gloves.
 forensic-pad-no-access = Can't access the fingerprint.
 forensic-pad-start-scan-target = { CAPITALIZE($user) } is trying to take a sample of your fingerprints.
 forensic-pad-start-scan-user = You start taking a sample of { CAPITALIZE($target) }'s fingerprints.
@@ -24,5 +23,9 @@ forensic-scanner-verb-message = Perform a forensic scan
 forensics-dna-unknown = unknown DNA
 forensics-verb-text = Remove evidence
 forensics-verb-message = Remove fingerprints and DNA residues from the object!
-forensics-cleaning = You begin cleaning the evidence off of { $target }...
 forensics-cleaning-cannot-clean = There is nothing cleanable on { $target }!
+forensic-pad-gloves = { CAPITALIZE($target) } is wearing gloves.
+
+forensics-cleaning-user = You begin cleaning the evidence off of {THE($target)}...
+
+forensics-cleaning-others = {CAPITALIZE($user)} begins cleaning the evidence off of {THE($target)}.
