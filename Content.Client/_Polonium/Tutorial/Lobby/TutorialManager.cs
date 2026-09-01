@@ -118,7 +118,7 @@ public sealed class TutorialManager : SharedTutorialLobbyManager
             return false;
 
         Progress.IsCompleted = false;
-        _currentStepIndex = fromStepIndex ?? 0;
+        _currentStepIndex = fromStepIndex ?? (_cfg.GetCVar(CCVars.SkipLobbyIntroDebug) ? _steps.Count - 1 : 0);
         _isPaused = false;
 
         return ExecuteCurrentStep();
@@ -297,7 +297,7 @@ public sealed class TutorialManager : SharedTutorialLobbyManager
     private bool Reset()
     {
         var currentOverlay = _tutorialUi.ActiveOverlay;
-        if (currentOverlay is not null)
+        if (currentOverlay is not null && currentOverlay.Id != TutorialPresentationSystem.OverlayId)
             _tutorialUi.RemoveOverlay(currentOverlay);
 
         _tutorialUi.ClearPendingOverlays();
@@ -392,12 +392,11 @@ public sealed class TutorialManager : SharedTutorialLobbyManager
         if (args.NewState is LobbyState { Lobby: { } gui })
         {
             OnLobbyEntered(gui);
+            return;
         }
-        else
-        //if (IsTutorialActive)
-        {
+
+        if (IsTutorialActive)
             CancelTutorial();
-        }
     }
 
     private void OnStepSkipped(IClientsideNavTutorialStep step)

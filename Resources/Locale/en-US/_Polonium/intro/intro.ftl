@@ -49,3 +49,4 @@ intro-proceed-prompt-disagree-button = Maybe later
 intro-proceed-prompt-agree-later = No problem! Remember you can always start the practical tutorial later by clicking the marked button. Good luck!
 intro-solitary-server-hopping-message = Hang tight, transferring you to the simulated space station...
 intro-proceed-prompt-fallback-message = You already know almost everything! Feel free to join the game - the crew will gladly welcome you and help with your first steps. When you have a moment, check the guidebook to learn more about mechanics and your role. Good luck and have fun!
+intro-proceed-practical-button = Continue to the practical part

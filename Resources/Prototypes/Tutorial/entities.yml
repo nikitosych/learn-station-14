@@ -1,0 +1,30 @@
+- type: entity
+  parent: MarkerBase
+  id: TutorialMarker
+  name: tutorial marker
+  suffix: Tutorial
+  components:
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WallInvisiblePermanent
+  name: invisible wall
+  suffix: Permanent
+  components:
+  - type: Tag
+    tags:
+    - Wall
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: Airtight

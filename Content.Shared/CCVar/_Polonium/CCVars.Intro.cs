@@ -36,6 +36,12 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> IntroInDebug = CVarDef.Create("intro.in_debug", true, CVar.SERVER | CVar.REPLICATED);
 
+    public static readonly CVarDef<bool> SkipLobbyIntroDebug =
+        CVarDef.Create("intro.skip_lobby_intro_debug", false, CVar.SERVER | CVar.REPLICATED);
+
     public static readonly CVarDef<string> IntroSolitaryServerConnectionString =
         CVarDef.Create("intro.solitary_server_con_string", string.Empty, CVar.SERVER | CVar.REPLICATED);
+
+    public static readonly CVarDef<string> IntroReturnServerConnectionString =
+        CVarDef.Create("intro.return_server_con_string", string.Empty, CVar.SERVER | CVar.REPLICATED);
 }

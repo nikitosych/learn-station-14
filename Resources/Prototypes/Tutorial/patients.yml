@@ -1,0 +1,99 @@
+- type: entity
+  parent: MobHuman
+  id: TutorialPatientBase
+  abstract: true
+  suffix: Tutorial
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+
+- type: entity
+  parent: TutorialPatientBase
+  id: TutorialPatientBrute
+  suffix: Tutorial, Brute
+  components:
+  - type: Damageable
+    damage:
+      types:
+        Blunt: 35
+        Slash: 20
+  - type: TutorialPatient
+    kind: brute
+    damageGroup: Brute
+    medkitAnchor: medkit_brute
+  - type: TutorialAnchor
+    anchorId: patient_brute
+
+- type: entity
+  parent: TutorialPatientBase
+  id: TutorialPatientBurn
+  suffix: Tutorial, Burn
+  components:
+  - type: Damageable
+    damage:
+      types:
+        Heat: 40
+  - type: TutorialPatient
+    kind: burn
+    damageType: Heat
+    medkitAnchor: medkit_burn
+  - type: TutorialAnchor
+    anchorId: patient_burn
+
+- type: entity
+  parent: TutorialPatientBase
+  id: TutorialPatientToxin
+  suffix: Tutorial, Toxin
+  components:
+  - type: Damageable
+    damage:
+      types:
+        Poison: 35
+  - type: TutorialPatient
+    kind: toxin
+    damageType: Poison
+    medkitAnchor: medkit_toxin
+  - type: TutorialAnchor
+    anchorId: patient_toxin
+
+- type: entity
+  parent: TutorialPatientBase
+  id: TutorialPatientRad
+  suffix: Tutorial, Radiation
+  components:
+  - type: Damageable
+    damage:
+      types:
+        Radiation: 40
+  - type: TutorialPatient
+    kind: rad
+    damageType: Radiation
+    medkitAnchor: medkit_rad
+  - type: TutorialAnchor
+    anchorId: patient_rad
+
+- type: entity
+  parent: SalvageHumanCorpse
+  id: TutorialPatientCorpse
+  suffix: Tutorial, Dead
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+  - type: TutorialPatient
+    kind: corpse
+    spawnedDead: true
+  - type: TutorialAnchor
+    anchorId: patient_corpse

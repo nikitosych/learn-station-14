@@ -9,14 +9,19 @@ using System.Linq;
 using Content.Server.GameTicking.Prototypes;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
+using Content.Server.Preferences.Managers;
 using Content.Shared._Polonium.Tutorial;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Rules;
 using Content.Shared.Maps;
+using Content.Shared.Mind;
+using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Station.Components;
+using Robust.Server.Player;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
@@ -36,13 +41,17 @@ public sealed class SolitarySpawningSystem : GameRuleSystem<SolitarySpawningRule
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IServerPreferencesManager _prefs = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     // A list of the station entities generated for each player (and the map they are on).
     // Used for respawning players on their own station, and for deleting unused maps.
     private readonly Dictionary<ICommonSession, (EntityUid, MapId)> _stations = [];
+    private readonly HashSet<NetUserId> _pendingLobbyJoins = [];
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -51,6 +60,63 @@ public sealed class SolitarySpawningSystem : GameRuleSystem<SolitarySpawningRule
 
         SubscribeLocalEvent<PlayerBeforeSpawnEvent>(OnBeforeSpawn);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
+        SubscribeLocalEvent<RoundStartedEvent>(OnRoundStarted);
+    }
+
+    public bool TryJoinFromLobby(ICommonSession session)
+    {
+        if (GameTicker.UserHasJoinedGame(session))
+            return false;
+
+        var preset = GameTicker.CurrentPreset ?? GameTicker.Preset;
+        if (preset?.ID != "Tutorial")
+            return false;
+
+        if (GameTicker.RunLevel == GameRunLevel.PreRoundLobby)
+        {
+            GameTicker.ToggleReady(session, true);
+            GameTicker.StartRound();
+
+            if (GameTicker.UserHasJoinedGame(session))
+                return true;
+
+            // timer already kicking off StartRound, wait and spawn after
+            if (GameTicker.RunLevel == GameRunLevel.PreRoundLobby)
+            {
+                _pendingLobbyJoins.Add(session.UserId);
+                return true;
+            }
+        }
+
+        if (GameTicker.RunLevel != GameRunLevel.InRound)
+            return false;
+
+        return TryRestartTutorial(session);
+    }
+
+    public bool TryRestartTutorial(ICommonSession session)
+    {
+        if (!TryGetActivePrototype(out var proto))
+            return false;
+
+        var profile = _prefs.GetPreferencesOrNull(session.UserId)?.SelectedCharacter as HumanoidCharacterProfile
+                      ?? HumanoidCharacterProfile.Random();
+
+        _mind.WipeMind(session);
+
+        if (_stations.Remove(session, out var stored))
+        {
+            var (station, mapId) = stored;
+            _map.DeleteMap(mapId);
+            if (!Deleted(station))
+                Del(station);
+        }
+
+        if (!CreateSolitaryStation(session, profile, proto, out var stationTarget))
+            return false;
+
+        SpawnPlayer(session, profile, proto.Job, stationTarget.Value, proto.WelcomeLoc, proto.TutorialFlow);
+        return true;
     }
 
     /// <summary>
@@ -100,15 +166,15 @@ public sealed class SolitarySpawningSystem : GameRuleSystem<SolitarySpawningRule
             if (RequestExistingStation(session, out var stationExist))
             {
                 Log.Debug($"Existing solitary station found for {session}. Not creating a new map.");
-                SpawnPlayer(args, job, stationExist.Value, null, proto.TutorialFlow);
+                SpawnPlayer(session, args.Profile, job, stationExist.Value, null, proto.TutorialFlow);
                 args.Handled = true;
                 break;
             }
 
-            if (!CreateSolitaryStation(args, proto, session, out var stationTarget))
+            if (!CreateSolitaryStation(session, args.Profile, proto, out var stationTarget))
                 continue;
 
-            SpawnPlayer(args, job, stationTarget.Value, proto.WelcomeLoc, proto.TutorialFlow);
+            SpawnPlayer(session, args.Profile, job, stationTarget.Value, proto.WelcomeLoc, proto.TutorialFlow);
             args.Handled = true;
             break;
         }
@@ -118,17 +184,29 @@ public sealed class SolitarySpawningSystem : GameRuleSystem<SolitarySpawningRule
             Log.Warning($"Solitary spawning failed for {session.Name}, spawning on the normal map.");
     }
 
+    private bool TryGetActivePrototype([NotNullWhen(true)] out SolitarySpawningPrototype? proto)
+    {
+        proto = null;
+        var query = QueryActiveRules();
+        while (query.MoveNext(out _, out var comp, out _))
+        {
+            if (comp.Prototypes.Count == 0)
+                continue;
+
+            if (_proto.TryIndex(comp.Prototypes.First(), out proto))
+                return true;
+        }
+
+        return false;
+    }
+
     /// <summary>
     /// Create a personal map for one player
     /// </summary>
-    /// <param name="args">The spawn event for the player trying to spawn</param>
-    /// <param name="prototype">The prototype that specifies the map and job for the spawn</param>
-    /// <param name="session">The player session</param>
-    /// <param name="stationTarget">The station entity (nullspace) that is being created for this player</param>
     private bool CreateSolitaryStation(
-        PlayerBeforeSpawnEvent args,
-        SolitarySpawningPrototype prototype,
         ICommonSession session,
+        HumanoidCharacterProfile profile,
+        SolitarySpawningPrototype prototype,
         [NotNullWhen(true)] out EntityUid? stationTarget)
     {
         stationTarget = null;
@@ -140,15 +218,9 @@ public sealed class SolitarySpawningSystem : GameRuleSystem<SolitarySpawningRule
             return false;
         }
 
-        if (args.Profile == null)
-        {
-            Log.Error($"Solitary spawning failed for {session} - Player has no character profile");
-            return false;
-        }
-
         // Create the new map and station, and assign them identifiable names
-        var stationName = Loc.GetString("solitary-station-name", ("character", args.Profile.Name));
-        var mapName = Loc.GetString("solitary-map-name", ("character", args.Profile.Name));
+        var stationName = Loc.GetString("solitary-station-name", ("character", profile.Name));
+        var mapName = Loc.GetString("solitary-map-name", ("character", profile.Name));
         var query = GameTicker.LoadGameMap(map, out var mapId, stationName: stationName);
         var newMap = query.First();
         _meta.SetEntityName(Transform(newMap).ParentUid, mapName);
@@ -164,28 +236,21 @@ public sealed class SolitarySpawningSystem : GameRuleSystem<SolitarySpawningRule
         stationTarget = member.Station;
 
         //store the newly created station entity and map for this session, for respawn and cleanup purposes
-        _stations.Add(session, (stationTarget.Value, mapId));
+        _stations[session] = (stationTarget.Value, mapId);
         return true;
     }
 
     /// <summary>
     /// Spawn the player and their gear
     /// </summary>
-    /// <param name="args">The spawn event</param>
-    /// <param name="jobId">The prototype ID of the job that will be assigned to the player</param>
-    /// <param name="station">The station entity (nullspace)</param>
-    /// <param name="message">A message that will be announced to the player upon spawning on the map for the first time</param>
-    /// <param name="tutorialFlow">Optional tutorial flow to start for the player. If set, raises <see cref="TutorialStartRequestedEvent"/> after spawn.</param>
     private void SpawnPlayer(
-        PlayerBeforeSpawnEvent args,
+        ICommonSession session,
+        HumanoidCharacterProfile? humanoid,
         ProtoId<JobPrototype> jobId,
         EntityUid station,
         LocId? message,
         ProtoId<Content.Shared._Polonium.Tutorial.Prototypes.TutorialFlowPrototype>? tutorialFlow)
     {
-        var session = args.Player;
-        var humanoid = args.Profile;
-
         if (humanoid is null)
         {
             Log.Error($"Solitary spawning failed for {session} - Player has no character profile");
@@ -212,9 +277,6 @@ public sealed class SolitarySpawningSystem : GameRuleSystem<SolitarySpawningRule
     /// <summary>
     /// Checks if a player already has a station allocated to them.
     /// </summary>
-    /// <param name="session">The player session</param>
-    /// <param name="station">The player's existing station</param>
-    /// <returns></returns>
     private bool RequestExistingStation(ICommonSession session, [NotNullWhen(true)] out EntityUid? station)
     {
         station = null;
@@ -226,10 +288,27 @@ public sealed class SolitarySpawningSystem : GameRuleSystem<SolitarySpawningRule
         return true;
     }
 
+    private void OnRoundStarted(RoundStartedEvent args)
+    {
+        foreach (var userId in _pendingLobbyJoins)
+        {
+            if (!_player.TryGetSessionById(userId, out var session))
+                continue;
+
+            if (GameTicker.UserHasJoinedGame(session))
+                continue;
+
+            TryRestartTutorial(session);
+        }
+
+        _pendingLobbyJoins.Clear();
+    }
+
     /// Clear the saved station list, since the maps are being deleted
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent args)
     {
         _stations.Clear();
+        _pendingLobbyJoins.Clear();
     }
 
     private void MapCleanup()

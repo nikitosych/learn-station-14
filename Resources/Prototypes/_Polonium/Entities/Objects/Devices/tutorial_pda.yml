@@ -14,9 +14,8 @@
   - type: Sprite
     layers:
     - state: default
-    - state: decal-stripe-civillian
     - sprite: Interface/Misc/job_icons.rsi
-      offset: "-0.125, 0.09375"
+      offset: -0.09375, 0.0625
       state: Passenger
   - type: PresetIdCard
     job: Trainee

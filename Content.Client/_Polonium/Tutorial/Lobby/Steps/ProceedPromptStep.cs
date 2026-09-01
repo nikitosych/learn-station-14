@@ -17,6 +17,7 @@ public sealed class ProceedPromptStep : ClientsideNavTutorialStep
 {
     [Dependency] private readonly IGameController _game = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IEntitySystemManager _systems = default!;
 
     public override string StepId => "proceed_prompt";
     public override bool CanExecute()
@@ -28,10 +29,58 @@ public sealed class ProceedPromptStep : ClientsideNavTutorialStep
     {
         if (!string.IsNullOrEmpty(_cfg.GetCVar(CCVars.IntroSolitaryServerConnectionString)))
             PromptOverlay();
+        else if (!string.IsNullOrEmpty(_cfg.GetCVar(CCVars.IntroReturnServerConnectionString)))
+            PracticalOverlay();
         else
             FallbackOverlay();
 
         return true;
+    }
+
+    private void PracticalOverlay()
+    {
+        TutorialUi.PlanOverlay($"{StepId}-practical");
+
+        var bubble = new TutorialBubble(Loc.GetString("intro-proceed-prompt-message-1"))
+        {
+            ClickAction = TutorialBubble.ClickBehaviour.Ignore,
+            TippyVariant = TutorialBubble.Tippy.None,
+        };
+
+        var questionLabel = new RichTextLabel
+        {
+            Margin = new Thickness(0f, 5f),
+            Text = Loc.GetString("intro-welcome-begin-question-message"),
+            ModulateSelfOverride = Color.Black,
+            HorizontalAlignment = Control.HAlignment.Center,
+        };
+
+        var practicalButton = new Button
+        {
+            Text = Loc.GetString("intro-proceed-practical-button"),
+            HorizontalAlignment = Control.HAlignment.Center,
+            Margin = new Thickness(0, 8, 0, 0),
+        };
+
+        var buttonContainer = new BoxContainer
+        {
+            Align = BoxContainer.AlignMode.Center,
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+        };
+
+        buttonContainer.AddChild(questionLabel);
+        buttonContainer.AddChild(practicalButton);
+        bubble.ButtonsContainer.AddChild(buttonContainer);
+
+        practicalButton.OnPressed += _ => OnPractical();
+
+        TutorialUi.PlanBubble(bubble, TutorialHighlightOverlay.OverlayControlPosition.Center);
+    }
+
+    private void OnPractical()
+    {
+        Tutorial.CompleteTutorial();
+        _systems.GetEntitySystem<TutorialPresentationSystem>().RequestPracticalJoin();
     }
 
     public void FallbackOverlay()
@@ -39,7 +88,7 @@ public sealed class ProceedPromptStep : ClientsideNavTutorialStep
         var name = $"{StepId}-fallback";
         TutorialUi.PlanOverlay(name);
 
-        var bubble = new TutorialBubble(Loc.GetString("intro-proceed-prompt-message-fallback"))
+        var bubble = new TutorialBubble(Loc.GetString("intro-proceed-prompt-fallback-message"))
         {
             ClickAction = TutorialBubble.ClickBehaviour.CloseOverlay,
             TippyVariant = TutorialBubble.Tippy.None,

@@ -24,4 +24,27 @@ tutorial-step-cook-sausage-bread = Otwórz Poradnik (F1 albo ikonka po prawej) �
 tutorial-step-go-to-bar = Czas na bar! Masz teraz dostęp. Idź za ladę.
 tutorial-step-learn-bar = Tutaj robisz drinki. Szklanki z VendingMachineBooze, składniki z BoozeDispenser i SodaDispenser. Receptury w Poradniku → Napoje. Pobaw się, a gdy ci się znudzi — kliknij przycisk.
 
+# Phase D — medbay.
+tutorial-step-go-to-medbay = Szpital woła. Masz dostęp Medical — idź do wejścia medbayu.
+tutorial-step-heal-patients = Czterech żywych, jeden trup. Apteczki są kolorowe — albo otwórz Poradnik i sprawdź, czym leczyć. Zła chemia potrafi zabić, a korporacja lubi mieć winnego. Pomoc podpowie, od kogo zacząć.
+tutorial-step-bag-corpses = Trupy nie leżą na korytarzu. Weź worek na ciała z szafki, zapakuj zmarłych i wsadź do kostnicy.
+
+# Phase E — security.
+tutorial-step-go-to-security = Ostatni przystanek — ochrona. Masz dostęp, idź na korytarz ochrony.
+tutorial-step-shooting-range = Na strzelnicy leży pistolet VIS i magazynki. Załaduj, strzelaj do tarcz. Jak ci się znudzi — kliknij przycisk.
+tutorial-step-arrest-practice = W pudełku są zip-tie. Zakuj manekina (lub kolegę, jak znajdziesz). Potem przycisk.
+
+# Outro.
+tutorial-step-finale = Tyle na dziś. Na prawdziwej stacji nikt nie trzyma cię za rączkę. Kliknij, żeby wrócić na serwer główny.
+
 tutorial-bubble-acknowledge = Zrobione
+tutorial-bubble-help = Pomoc
+tutorial-bubble-guidebook = Poradnik
+tutorial-bubble-exit = Wyjdź
+tutorial-redial-message = Łączenie z serwerem głównym…
+
+tutorial-help-brute = Czerwona apteczka. Wyciągnij zestaw od siniaków (brutepack / gaza) i użyj na { $name }. Nie dawaj mu maści od oparzeń.
+tutorial-help-burn = Żółta apteczka. Maść i tabletki kelotane / dermaline na { $name }.
+tutorial-help-toxin = Zielona apteczka. Dylovene albo węgiel na { $name }. Ipecac to wymioty, nie odtrutka — odłóż.
+tutorial-help-rad = Apteczka od promieniowania. Hyronalin albo jodek potasu na { $name }. Phalanximine odpuść.
+tutorial-help-done = Żywi są ogarnięci. Został trup — worek i kostnica.

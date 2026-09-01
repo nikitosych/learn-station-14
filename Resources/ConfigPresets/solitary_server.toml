@@ -5,7 +5,7 @@ enabled = false
 tickrate = 30
 port = 1214
 bindto = "::,0.0.0.0"
-max_connections = 60
+max_connections = 200
 pvs_range = 50
 
 [status]
@@ -15,15 +15,12 @@ enabled = true
 
 [game]
 hostname = "[PL]🪐 Polonium Station | Serwer Szkoleniowy"
-# SS14 GameTicker.InitializeGamePreset() жёстко форсит "sandbox" при lobbyenabled=false,
-# игнорируя defaultpreset. Поэтому лобби включено + минимальная длительность.
 lobbyenabled = true
-lobbyduration = 5
-soft_max_players = 40
+lobbyduration = 20
+soft_max_players = 50
 role_timer_override = "Zeroed"
 server_full_reconnect_delay = 30
 defaultpreset = "Tutorial"
-# Late join (np. Passenger) omija SolitarySpawning — nie uruchomi TutorialBasic.
 disallowlatejoins = true
 map = "Tutorial"
 role_timers = false
@@ -43,9 +40,6 @@ opaque_storage_background = true
 
 [ui]
 uuid_banner_enabled = false
-
-# [chat]
-# motd = "\n\nWitaj!\nZnajdujesz się na serwerze, który dopiero niedawno wystartował i ciągle się rozwija.\n\n(*) Podczas gry prosimy, abyś zwrócił uwagę na to, czego Twoim zdaniem brakuje do jeszcze lepszej i weselszej rozgrywki.\n\n(*) Wszelkie błędy i problemy zgłaszaj proszę na naszym Discordzie lub przez GitHub Issues\n\n(*) i nie wahaj się zwracać do administratorów w AHelp.\n\nMiłej zabawy :)"
 
 [ic]
 flavor_text = true
@@ -83,23 +77,15 @@ discord = "http://discord.ss14.pl"
 [events]
 enabled = false
 
-[newlife]
-max_new_lifes = 1
-
 [funky]
 looc_budget_enabled = false
 
-[salvage]
-expedition_duration = 900
-expedition_cooldown = 500
-
 [atmos]
 space_wind = false
-space_wind_pressure_force_divisor_throw = 20
-space_wind_pressure_force_divisor_push = 3000
 
-# NB: intro.solitary_server_con_string на solitary НЕ читается (lobby выключено,
-# ProceedPromptStep там не работает). Этот CVar нужен на главном сервере, см. main_dev_server.toml.
+[intro]
+return_server_con_string = "ss14://127.0.0.1:1212"
+skip_lobby_intro_debug = true
 
 [build]
 fork_id = "polonium"
@@ -109,5 +95,4 @@ mode = 0
 
 [database]
 engine = "sqlite"
-# Отдельная БД от main, иначе SQLite lock при одновременном запуске двух серверов.
 sqlite_dbpath = "preferences_solitary.db"

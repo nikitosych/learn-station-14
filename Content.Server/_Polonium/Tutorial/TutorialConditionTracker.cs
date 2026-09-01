@@ -1,10 +1,4 @@
-// SPDX-FileCopyrightText: 2026 Polonium-bot <admin@ss14.pl>
-// SPDX-FileCopyrightText: 2026 nikitosych <174215049+nikitosych@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
-using System.Numerics;
 using Content.Shared._Polonium.Tutorial;
 using Content.Shared._Polonium.Tutorial.Components;
 using Content.Shared._Polonium.Tutorial.Conditions;
@@ -20,10 +14,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Polonium.Tutorial;
 
-/// <summary>
-/// Watches game events and polls for completion of the active step's condition.
-/// One method per condition kind — easier to read than a giant switch.
-/// </summary>
 public sealed class TutorialConditionTracker : EntitySystem
 {
     [Dependency] private readonly TutorialSystem _tutorial = default!;
@@ -60,8 +50,6 @@ public sealed class TutorialConditionTracker : EntitySystem
         PollSessions();
     }
 
-    #region Event handlers
-
     private void OnPickedUp(Entity<TutorialAnchorComponent> anchor, ref GotEquippedHandEvent ev)
     {
         _tutorial.TryAdvance(ev.User, condition =>
@@ -88,21 +76,21 @@ public sealed class TutorialConditionTracker : EntitySystem
         if (!TryComp<TutorialSessionComponent>(player, out var session))
             return;
 
-        // Stale click from a previous step? Drop it — otherwise a slow click could skip the next step.
+        // stale click from the previous step would skip the next one
         if (session.CurrentStep is not { } current || current.Id != ev.StepId)
             return;
 
         _tutorial.TryAdvance(player, c => c is ManualAcknowledgeCondition);
     }
 
-    // Catches "trashbag thrown into disposals" — disposals just delete the entity.
+    // disposals just delete the bag, no flush event
     private void OnAnchorRemoved(Entity<TutorialAnchorComponent> anchor, ref ComponentShutdown args)
     {
         var anchorId = anchor.Comp.AnchorId;
         if (string.IsNullOrWhiteSpace(anchorId))
             return;
 
-        // Notify every active session — we don't know which player made it disappear.
+        // don't know which player flushed it
         var query = EntityQueryEnumerator<TutorialSessionComponent>();
         while (query.MoveNext(out var playerUid, out _))
         {
@@ -110,10 +98,6 @@ public sealed class TutorialConditionTracker : EntitySystem
                 c is EntityDeletedCondition del && del.AnchorId == anchorId);
         }
     }
-
-    #endregion
-
-    #region Polling
 
     private void PollSessions()
     {
@@ -133,13 +117,15 @@ public sealed class TutorialConditionTracker : EntitySystem
             SlotContainsAnchorRecursiveCondition slot  => CheckSlotContainsRecursive(player, slot),
             ItemReagentContainsCondition reagent       => CheckReagentInAnchor(session, reagent),
             ItemPulledCondition pull                   => CheckPulling(player, session, pull),
+            TutorialPatientsHealedCondition            => _tutorial.AreLivingPatientsHealed(player),
+            TutorialDeadPatientsContainedCondition        => _tutorial.AreDeadPatientsContained(player),
             _ => false,
         };
     }
 
     private bool CheckReach(EntityUid player, TutorialSessionComponent session, ReachAnchorCondition reach)
     {
-        // Scan all anchors with this id — handles "approach any of N" cases (multiple disposals etc.).
+        // any matching id on the grid
         if (!TryComp(player, out TransformComponent? playerXform) || playerXform.GridUid is not { } grid)
             return false;
 
@@ -162,8 +148,6 @@ public sealed class TutorialConditionTracker : EntitySystem
 
     private bool CheckAllCleared(EntityUid player, AllAnchorsClearedCondition cond)
     {
-        // "Cleared" = either deleted, or sitting inside any container (trashbag, locker, disposals…).
-        // Without the container check, picked-up trash still counts as on the floor.
         if (!TryComp(player, out TransformComponent? xform) || xform.GridUid is not { } grid)
             return false;
 
@@ -207,7 +191,6 @@ public sealed class TutorialConditionTracker : EntitySystem
             found.Add(anchor.AnchorId);
         }
 
-        // Bail early if we've matched everything.
         if (found.Count == wanted.Count)
             return;
 
@@ -227,7 +210,6 @@ public sealed class TutorialConditionTracker : EntitySystem
         if (!session.Anchors.TryGetValue(cond.AnchorId, out var uid))
             return false;
 
-        // Total up the reagent across every solution on the entity.
         var total = 0f;
         foreach (var (_, solutionEnt) in _solution.EnumerateSolutions((uid, null)))
         {
@@ -248,6 +230,4 @@ public sealed class TutorialConditionTracker : EntitySystem
 
         return TryComp<PullerComponent>(player, out var puller) && puller.Pulling == target;
     }
-
-    #endregion
 }

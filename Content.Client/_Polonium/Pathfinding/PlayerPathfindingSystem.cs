@@ -25,8 +25,7 @@ public sealed class PlayerPathfindingSystem : EntitySystem
     private const float WaypointAdvanceThreshold = 0.15f;
     private const float TargetOutlineWidth = 1f;
 
-    [ValidatePrototypeId<ShaderPrototype>]
-    private const string TargetOutlineShader = "SelectionOutlineInrange";
+    private static readonly ProtoId<ShaderPrototype> TargetOutlineShader = "SelectionOutlineInrange";
 
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IOverlayManager _overlayManager = default!;
@@ -57,7 +56,7 @@ public sealed class PlayerPathfindingSystem : EntitySystem
     {
         base.Initialize();
 
-        _targetOutlineShader = _prototypeManager.Index<ShaderPrototype>(TargetOutlineShader).InstanceUnique();
+        _targetOutlineShader = _prototypeManager.Index(TargetOutlineShader).InstanceUnique();
 
         if (!_overlayManager.HasOverlay<PathfindingOverlay>())
             _overlayManager.AddOverlay(new PathfindingOverlay(this, EntityManager, _mapSystem, _playerManager, _transform));

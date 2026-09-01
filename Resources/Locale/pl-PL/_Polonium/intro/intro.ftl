@@ -49,3 +49,4 @@ intro-proceed-prompt-disagree-button = Może później
 intro-proceed-prompt-agree-later = Nie ma problemu! Pamiętaj, że zawsze możesz rozpocząć praktyczną część samouczka później, klikając oznaczony przycisk. Powodzenia!
 intro-solitary-server-hopping-message = Czekaj, przenosimy Cię na symulowaną stację kosmiczną...
 intro-proceed-prompt-fallback-message = Wiesz już niemal wszystko! Możesz teraz śmiało dołączyć do gry - załoga z pewnością chętnie Cię przywita i pomoże postawić pierwsze kroki. W wolnej chwili zajrzyj do naszego poradnika, aby lepiej poznać mechaniki i ciekawostki o swojej roli. Powodzenia i dobrej zabawy!
+intro-proceed-practical-button = Przejdź do praktycznej części

@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 06/30/2026 13:19:31
-  entityCount: 3036
+  entityCount: 3039
 maps:
 - 1
 grids:
@@ -58,11 +58,11 @@ entities:
     components:
     - type: MetaData
       name: Stacja Symulacyjna
+    - type: BecomesStation
+      id: Tutorial
     - type: Transform
       pos: -5.522727,3.343679
       parent: 1
-    - type: BecomesStation
-      id: Tutorial
     - type: MapGrid
       chunks:
         0,0:
@@ -1431,7 +1431,7 @@ entities:
     - type: Transform
       pos: 6.5,-27.5
       parent: 2
-- proto: AirlockGlassMaintenance
+- proto: AirlockMaintGlass
   entities:
   - uid: 53
     components:
@@ -2448,6 +2448,8 @@ entities:
     - type: Transform
       pos: 24.345577,-4.4716787
       parent: 2
+    - type: TutorialAnchor
+      anchorId: bodybag
 - proto: BoxFlashbang
   entities:
   - uid: 815
@@ -2490,7 +2492,9 @@ entities:
     - type: Transform
       pos: 12.849493,2.6108413
       parent: 2
-- proto: BrokenCatwalk
+    - type: TutorialAnchor
+      anchorId: ziptie_box
+- proto: Catwalk
   entities:
   - uid: 973
     components:
@@ -6726,7 +6730,7 @@ entities:
       deviceLists:
       - 2884
       - 2866
-- proto: FitnessPunchingBagBopClown
+- proto: TargetClown
   entities:
   - uid: 828
     components:
@@ -6915,7 +6919,7 @@ entities:
       anchorId: trash
 - proto: FoodTinPeachesTrash
   entities:
-  - uid: 2330
+  - uid: 3105
     components:
     - type: Transform
       pos: 9.28259,-17.611097
@@ -11274,31 +11278,26 @@ entities:
   - uid: 2896
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -11.5,-22.5
       parent: 2
   - uid: 2912
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -11.5,-23.5
       parent: 2
   - uid: 2914
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -11.5,-21.5
       parent: 2
   - uid: 2917
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -10.5,-21.5
       parent: 2
   - uid: 2993
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -12.5,-21.5
       parent: 2
 - proto: HoloprojectorSecurity
@@ -11435,7 +11434,7 @@ entities:
     - type: Transform
       pos: 10.5,10.5
       parent: 2
-- proto: MarkerSimple
+- proto: TutorialMarker
   entities:
   - uid: 250
     components:
@@ -11493,7 +11492,7 @@ entities:
       parent: 2
     - type: TutorialAnchor
       anchorId: marker_janitor
-  - uid: 1145
+  - uid: 3106
     components:
     - type: Transform
       pos: -2.5,-5.5
@@ -11582,7 +11581,7 @@ entities:
     - type: Transform
       pos: 25.5,-13.5
       parent: 2
-- proto: MedicalCurtains
+- proto: HospitalCurtains
   entities:
   - uid: 613
     components:
@@ -11619,6 +11618,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: 22.100403,-1.4420471
       parent: 2
+    - type: TutorialAnchor
+      anchorId: medkit_brute
 - proto: MedkitBurnFilled
   entities:
   - uid: 597
@@ -11627,6 +11628,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: 21.459267,-1.4083138
       parent: 2
+    - type: TutorialAnchor
+      anchorId: medkit_burn
 - proto: MedkitFilled
   entities:
   - uid: 594
@@ -11651,6 +11654,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: 20.160124,-1.3914471
       parent: 2
+    - type: TutorialAnchor
+      anchorId: medkit_rad
 - proto: MedkitToxinFilled
   entities:
   - uid: 596
@@ -11659,6 +11664,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: 20.801258,-1.3914471
       parent: 2
+    - type: TutorialAnchor
+      anchorId: medkit_toxin
 - proto: Mirror
   entities:
   - uid: 741
@@ -13110,7 +13117,7 @@ entities:
     - type: Transform
       pos: 18.5,-22.5
       parent: 2
-- proto: PaperHumanResourcesDept
+- proto: PaperOffice
   entities:
   - uid: 488
     components:
@@ -13118,7 +13125,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 12.411076,-6.1783133
       parent: 2
-- proto: PaperScienceAnomalyDocumentationForm
+- proto: PaperOffice
   entities:
   - uid: 487
     components:
@@ -13126,7 +13133,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 12.562923,-6.4313116
       parent: 2
-- proto: PenRecruiter
+- proto: Pen
   entities:
   - uid: 489
     components:
@@ -13334,7 +13341,7 @@ entities:
     - type: Transform
       pos: -4.5,-7.5
       parent: 2
-- proto: PowerCellMediumSingle
+- proto: PowerCellMedium
   entities:
   - uid: 627
     components:
@@ -13536,15 +13543,6 @@ entities:
     - type: Transform
       pos: 9.5,-10.5
       parent: 2
-- proto: RandomSecurityCorpseSpawner
-  entities:
-  - uid: 1010
-    components:
-    - type: Transform
-      pos: 25.5,-13.5
-      parent: 2
-    - type: TutorialAnchor
-      anchorId: corpse_spawner
 - proto: RandomSpawner100
   entities:
   - uid: 452
@@ -14265,15 +14263,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 6.5,-19.5
       parent: 2
-- proto: SpawnMobHuman
-  entities:
-  - uid: 631
-    components:
-    - type: Transform
-      pos: 23.5,-11.5
-      parent: 2
-    - type: TutorialAnchor
-      anchorId: urist_spawner
 - proto: SpawnPointAnyJob
   entities:
   - uid: 77
@@ -14999,7 +14988,7 @@ entities:
       parent: 2
 - proto: TraineeIDCard
   entities:
-  - uid: 2329
+  - uid: 3107
     components:
     - type: Transform
       pos: 9.701341,-8.993334
@@ -15007,6 +14996,8 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+    - type: TutorialAnchor
+      anchorId: trainee_id
 - proto: TraineePDA
   entities:
   - uid: 752
@@ -15077,6 +15068,41 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 3.5,5.5
+      parent: 2
+- proto: TutorialPatientBrute
+  entities:
+  - uid: 3100
+    components:
+    - type: Transform
+      pos: 20.5,-11.5
+      parent: 2
+- proto: TutorialPatientBurn
+  entities:
+  - uid: 3101
+    components:
+    - type: Transform
+      pos: 22.5,-12.5
+      parent: 2
+- proto: TutorialPatientToxin
+  entities:
+  - uid: 3102
+    components:
+    - type: Transform
+      pos: 24.5,-11.5
+      parent: 2
+- proto: TutorialPatientRad
+  entities:
+  - uid: 3103
+    components:
+    - type: Transform
+      pos: 23.5,-11.5
+      parent: 2
+- proto: TutorialPatientCorpse
+  entities:
+  - uid: 3104
+    components:
+    - type: Transform
+      pos: 25.5,-12.5
       parent: 2
 - proto: VendingBarDrobe
   entities:
@@ -15219,7 +15245,7 @@ entities:
     - type: Transform
       pos: -1.5,-3.5
       parent: 2
-- proto: VisMPSPistol
+- proto: WeaponVisMPSPistol
   entities:
   - uid: 827
     components:
@@ -15229,7 +15255,9 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: VisMPSPistolMagazinePractice
+    - type: TutorialAnchor
+      anchorId: vis_pistol
+- proto: WeaponVisMPSPistolMagazinePractice
   entities:
   - uid: 829
     components:
@@ -15239,6 +15267,8 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+    - type: TutorialAnchor
+      anchorId: vis_mag
   - uid: 830
     components:
     - type: Transform
@@ -15247,6 +15277,8 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+    - type: TutorialAnchor
+      anchorId: vis_mag
 - proto: WallInvisiblePermanent
   entities:
   - uid: 1950

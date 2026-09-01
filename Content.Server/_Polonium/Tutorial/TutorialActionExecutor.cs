@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2026 Polonium-bot <admin@ss14.pl>
-// SPDX-FileCopyrightText: 2026 nikitosych <174215049+nikitosych@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Server.Power.Components;
 using Content.Shared._Polonium.Tutorial.Actions;
@@ -10,6 +5,7 @@ using Content.Shared._Polonium.Tutorial.Components;
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Robust.Shared.Prototypes;
@@ -17,7 +13,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Polonium.Tutorial;
 
-/// <summary>Handles side-effects for tutorial steps — access changes, doors, power, etc.</summary>
 public sealed class TutorialActionExecutor : EntitySystem
 {
     [Dependency] private readonly SharedAccessSystem _access = default!;
@@ -53,6 +48,10 @@ public sealed class TutorialActionExecutor : EntitySystem
 
             case PowerDeviceAction power:
                 RunMaybeDelayed(power.Delay, () => SetPower(player, power.AnchorId, power.Powered));
+                break;
+
+            case SetPacifiedAction pacify:
+                SetPacified(player, pacify.Pacified);
                 break;
 
             default:
@@ -106,7 +105,6 @@ public sealed class TutorialActionExecutor : EntitySystem
             return;
         }
 
-        // Kill the safety bumper for the close call so the door shuts even with someone in the doorway.
         var hadSafety = TryComp<AirlockComponent>(doorUid, out var airlock) && airlock.Safety;
         if (hadSafety)
             _airlock.SetSafety(airlock!, false);
@@ -132,6 +130,14 @@ public sealed class TutorialActionExecutor : EntitySystem
         }
 
         receiver.PowerDisabled = !powered;
+    }
+
+    private void SetPacified(EntityUid player, bool pacified)
+    {
+        if (pacified)
+            EnsureComp<PacifiedComponent>(player);
+        else
+            RemComp<PacifiedComponent>(player);
     }
 
     private void ModifyAccess(EntityUid player, IReadOnlySet<ProtoId<AccessLevelPrototype>> tags, bool addNotRemove)
@@ -168,15 +174,10 @@ public sealed class TutorialActionExecutor : EntitySystem
                   $"on {modified} source(s) for {ToPrettyString(player)}");
     }
 
-    /// <summary>
-    /// Inventory first. If the player has nothing with AccessComponent on them
-    /// (e.g. dropped their PDA), fall back to anchored entities from the session that have AccessComponent
-    /// </summary>
     private HashSet<EntityUid> CollectAccessSources(EntityUid player)
     {
         var result = new HashSet<EntityUid>();
 
-        // normal path — whatever the player is holding / wearing
         if (_accessReader.FindAccessItemsInventory(player, out var invItems))
         {
             foreach (var item in invItems)
@@ -189,7 +190,7 @@ public sealed class TutorialActionExecutor : EntitySystem
         if (result.Count > 0)
             return result;
 
-        // fallback - scan tutorial anchors for something with AccessComponent
+        // id still on the floor before they pick it up
         if (!TryComp<TutorialSessionComponent>(player, out var session))
             return result;
 

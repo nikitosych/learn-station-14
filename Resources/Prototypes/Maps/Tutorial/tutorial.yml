@@ -1,7 +1,7 @@
 - type: gameMap
   id: Tutorial
   mapName: 'Tutorial'
-  mapPath: /Maps/_Polonium/tutorial.yml
+  mapPath: /Maps/_Polonium/Tutorial/linear.yml
   minPlayers: 0
   stations:
     Tutorial:

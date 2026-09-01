@@ -1,7 +1,3 @@
-# Dev-конфиг главного сервера. Используется парой с solitary_server.toml для проверки
-# полного перехода лобби-туториал → Redial → solitary → игровой туториал.
-# Запуск: --cvar config.presets=main_dev_server
-
 [log]
 enabled = false
 
@@ -80,10 +76,8 @@ looc_budget_enabled = false
 space_wind = false
 
 [intro]
-# Куда отправлять игрока после кнопки "Tak" в ProceedPromptStep.
-# Robust парсит это через new Uri(...) — нужен валидный URI (ss14:// или udp://).
-# В дебаге без launcher'а Redial выкинет exception — это нормально, важно что код туда дошёл.
 solitary_server_con_string = "ss14://127.0.0.1:1214"
+skip_lobby_intro_debug = true
 
 [build]
 fork_id = "polonium"
