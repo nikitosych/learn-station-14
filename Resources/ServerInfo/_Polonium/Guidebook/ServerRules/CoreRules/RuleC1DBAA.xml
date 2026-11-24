@@ -8,33 +8,45 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # R1 - Nie bądź dupkiem
+  # R1 - Nie psuj gry innym
 
-  [italic]Te zasady nie są idealne.[/italic] Staramy się jasno określić, na co zespół administracyjny pozwala, a czego zabrania, jednak mogą pojawić się luki lub niedociągnięcia. [bold][color=#ff8a8a]Nie próbuj manipulować interpretacją zasad[/color][/bold], aby osiągać własne cele lub psuć wrażenia z gry innym osobom.
+  [italic]Wszyscy jesteśmy tu po to, żeby dobrze się bawić.[/italic] Zabronione jest celowe psucie gry innym graczom, przede wszystkim [bold][color=#ff8a8a]griefing[/color][/bold] i [bold][color=#ff8a8a]samoantagonizm[/color][/bold].
 
-  [italic]Wszyscy jesteśmy tutaj po to, by dobrze się bawić.[/italic] Bycie "[color=#ffb86b]dupkiem[/color]" w kontekście [color=#8ec8ff]IC[/color] jest dozwolone, pod warunkiem, że robisz to z wyczuciem i szacunkiem dla współgraczy. Jednak przenoszenie takich zachowań poza świat gry jest surowo zabronione zgodnie z [textlink="zasadą społeczności nr.1" link="RuleS1"].
+  [color=#8ec8ff]Griefing[/color] – celowe wywoływanie chaosu, niszczenie stacji albo atakowanie innych postaci bez powodu, żeby zepsuć grę współgraczom. Obejmuje też [color=#8ec8ff]EORG[/color] (End-Of-Round Griefing), czyli griefing na koniec rundy.
 
-  Zabronione są wszelkie formy celowego psucia zabawy innym graczom, w tym [bold][color=#ff8a8a]samoantagowanie[/color][/bold] oraz [bold][color=#ff8a8a]griefing[/color][/bold]. Niedozwolone jest tworzenie postaci, których jedynym celem jest wywoływanie dramatów, dominacja na scenie lub bezustanne skupianie na sobie całej uwagi.
+  [color=#8ec8ff]Samoantagonizm[/color] – działania szkodliwe dla stacji lub załogi, które podejmuje bez zgody administracji gracz niebędący antagonistą: zabójstwa, sabotaż, kradzież przedmiotów o wysokiej wartości, wywoływanie paniki.
 
-  [color=#8ec8ff]Samoantagowanie[/color] – podejmowanie działań nieuzgodnionych z administracją, szkodliwych dla stacji lub załogi (takich jak morderstwa, kradzieże wysokiego stopnia, sabotaż czy wywoływanie paniki) przez osobę, która w danej rundzie posiada status "lojalnego pracownika NanoTrasen".
+  Jeśli chcesz zrobić coś, co wykracza poza drobną psotę, zapytaj wcześniej administrację przez Ahelp (F1).
 
-  [color=#8ec8ff]Griefing[/color] – celowe wywoływanie chaosu, niszczenie mienia stacji lub atakowanie innych postaci bez powodu w celu wywołania frustracji u współgraczy. Dotyczy to również [color=#8ec8ff]EORG[/color] (End-Of-Round Griefing) – griefing na koniec rundy.
+  ## Drobne psoty są dozwolone
 
-  [bold][color=#ff8a8a]Nie należy wielokrotnie i bezmyślnie obrażać innych graczy.[/color][/bold] Jeśli ktoś poprosi Cię o zaprzestanie zachowań niezgodnych z charakterem postaci ([color=#8ec8ff]Out Of Character - OOC[/color]), masz obowiązek to uszanować. Kontynuowanie takich działań będzie traktowane jako naruszenie [textlink="zasady społeczności nr.1" link="RuleS1"]. Pamiętaj jednak: jeśli grasz postacią kontrowersyjną, musisz liczyć się z adekwatnymi reakcjami innych postaci.
+  Mydło pod nogami, skórka od banana, niewinny żart albo drobne wykroczenie to część gry, a nie griefing. Wolno je robić każdemu i wobec każdego, także wobec Ochrony i Dowództwa. Odpowiadasz za nie w grze: Ochrona może cię ukarać według Prawa Kosmicznego, a poszkodowany odpłacić w granicach [textlink="eskalacji (R8)" link="RuleC8"].
 
-  Gracze mogą podejmować działania odwetowe zgodnie z zasadami eskalacji.
+  Psota staje się sprawą dla administracji dopiero wtedy, gdy:
 
-  ## Postępowanie z graczami w stanie SSD
+  1. [bold][color=#ffb86b]Wyrządza realną szkodę.[/color][/bold] Kończy się stanem krytycznym, śmiercią, trwałym okaleczeniem albo poważnym zniszczeniem stacji.
 
-  Szanujemy fakt, że gracze czasem muszą opuścić grę z przyczyn losowych lub technicznych. Gracze, którzy zostali rozłączeni i znajdują się w stanie hibernacji (tzw. [color=#d8a8ff]SSD[/color]), nie powinni być antagonizowani ani wykorzystywani, gdy nie są w stanie się bronić.
+  2. [bold][color=#ffb86b]Przeszkadza w reakcji na realne zagrożenie.[/color][/bold] Trafia w kogoś, kto właśnie ściga napastnika, walczy, niesie rannego, gasi pożar albo prowadzi ewakuację.
 
-  [bullet] [bold][color=#ff8a8a]Zakazy:[/color][/bold] Takich graczy nie wolno okradać, atakować bezpośrednio ani używać jako żywych tarcz.
+  3. [bold][color=#ffb86b]Jest uporczywa.[/color][/bold] Wracasz do tej samej osoby raz za razem, chociaż wyraźnie ma dość, albo całą rundę poświęcasz na dokuczanie jednemu graczowi.
 
-  [bullet] [bold][color=#7dffa8]Wyjątki:[/color][/bold] Interakcje niezbędne do ukończenia celów antagonisty lub obowiązków służbowych (np. przeszukania i aresztowania przez ochronę) są dozwolone.
+  4. [bold][color=#ffb86b]Jest tylko przykrywką.[/color][/bold] „To był żart” nie usprawiedliwia griefingu ani samoantagonizmu.
 
-  [bullet] [bold][color=#8ec8ff]Pomoc:[/color][/bold] Postacie w SSD można swobodnie przenosić do szpitala, ochrony lub promu ewakuacyjnego w celu zapewnienia im bezpieczeństwa i opieki.
+  [color=#7dffa8]Dozwolone:[/color]
+  - Mydło pod nogami funkcjonariusza, który patroluje korytarz.
+  - Skórka od banana przed drzwiami baru.
+  - Drobne wykroczenie, za które jesteś gotów trafić do aresztu.
+  - Granie postacią niemiłą, leniwą albo irytującą.
 
-  [bullet] [bold][color=#6ee8c8]Kryospanie:[/color][/bold] Gracze w stanie katatonicznym (fioletowy tekst) lub pozostający w SSD powyżej [bold]20 minut[/bold] powinni zostać przeniesieni do kamer kryogenicznych, aby zwolnić miejsce na serwerze.
+  [color=#ff8a8a]Zabronione:[/color]
+  - Poślizgnięcie funkcjonariusza, który właśnie ściga napastnika, albo ratownika, który niesie rannego.
+  - Podkładanie mydła temu samemu graczowi przez całą rundę, chociaż prosi, żebyś przestał.
+  - Niszczenie stacji albo bicie ludzi „dla żartu”.
+  - Bójki i zabójstwa bez powodu tuż przed końcem rundy (EORG).
 
-  [bullet] [bold][color=#ffe566]Cele:[/color][/bold] Jeśli Twój cel został odłączony, możesz poprosić administrację o wyznaczenie nowego zadania.
+  ## Niemiła postać a niemiły gracz
+
+  - Twoja postać może być niesympatyczna, o ile grasz ją z wyczuciem i szacunkiem dla współgraczy. Licz się wtedy z adekwatną reakcją innych postaci.
+  - [bold][color=#ff8a8a]Nie obrażaj innych graczy uporczywie i bezmyślnie.[/color][/bold] Jeśli ktoś poprosi cię poza postacią (OOC), żebyś przestał, uszanuj to. Dalsze dokuczanie łamie [textlink="zasadę S1" link="RuleS1"].
+  - Na krzywdę wolno odpowiedzieć w granicach [textlink="eskalacji (R8)" link="RuleC8"].
 </Document>

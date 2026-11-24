@@ -11,21 +11,68 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <Document>
   # R5 - Nie metagaminguj
 
-  Ta zasada obejmuje wszystkie metody zdobywania informacji poza środkami wewnątrzgrywowymi, takimi jak rozmowy przez Discorda, omawianie bieżących informacji o rundzie na serwerze Discord i tym podobne.
+  [bold][color=#ff8a8a]Metagaming[/color][/bold] to używanie w grze informacji, których twoja postać nie zdobyła w grze, na przykład z rozmów na Discordzie albo z omawiania trwającej rundy poza grą.
 
-  Zasada ta ogranicza wiedzę na temat [color=#ffb86b]antagonistów[/color], ich możliwych celów oraz mechanik zgodnie z zasadami dotyczącymi [textlink="Metaosłony" link="Metashield"].
+  - [bold][color=#ff8a8a]Metakomunikacja jest zabroniona.[/color][/bold] Kilku graczy, którzy grają i jednocześnie porozumiewają się poza grą (np. na rozmowie głosowej), łamie tę zasadę niezależnie od intencji, bo daje im to przewagę nad resztą.
+  - [bold]Nauka nowego gracza.[/bold] Jeśli kogoś uczysz, korzystaj z LOOC albo uprzedź administrację przez Ahelp (zwykle klawisz F1).
 
-  Zasada ta dotyczy również [bold][color=#ff8a8a]metakomunikacji[/color][/bold], czyli sytuacji, gdy kilku graczy komunikuje się poza grą (np. na rozmowie głosowej), jednocześnie grając. Niezależnie od intencji, jest to zabronione, ponieważ daje przewagę nad innymi graczami.
+  [bold][color=#ffb86b]Powergaming[/color][/bold] to wykorzystywanie mechanik i wiedzy gracza do zdobycia przewagi w grze, np. uzbrajanie Ochrony na początku rundy, bo wiesz, że pojawią się antagoniści. Też jest niepożądany.
 
-  Jeśli uczysz nowego gracza, zaleca się korzystanie z kanałów LOOC lub powiadomienie administratora za pomocą klawiszu Ahelp (zazwyczaj to F1).
+  ## Czego postać nigdy nie wie
 
-  [bold][color=#ff8a8a]Żadne informacje zdobyte podczas stanu krytycznego, nieprzytomności lub śmierci nie mogą być wykorzystywane w grze w żadnych okolicznościach[/color][/bold], chyba że zostały poznane za życia. Zasada ta jest ściśle egzekwowana, zwłaszcza w przypadkach "[color=#ff8a8a]metagrudge[/color]", czyli chowania urazy wobec osoby, która zabiła cię w poprzednich rundach lub życiach. Dotyczy to także informacji zdobytych tuż przed nagłą utratą przytomności, np. przez sen chemiczny lub opuszczenie ciała przez umysł.
+  Tych informacji twoja postać nie zna w żadnej rundzie i nie może zachowywać się tak, jakby je znała:
 
-  Po przywróceniu do życia dzięki [color=#7dffa8]resuscytacji krążeniowo-oddechowej[/color], [color=#7dffa8]klonowaniu[/color], [color=#7dffa8]MMI[/color], [color=#7dffa8]defibrylacji[/color] lub innej metodzie, pamiętasz okoliczności swojej śmierci, ale nie możesz ujawnić tożsamości swojego zabójcy, dopóki ktoś inny go nie wskaże lub nie znajdziesz dowodów.
+  - aktualny tryb gry i to, jacy antagoniści mogą się w nim pojawić,
+  - wydarzenia z poprzednich rund. Postać, którą grasz przez wiele rund, może pamiętać ogólne wrażenia z poprzednich zmian, na przykład że tamten kucharz dobrze gotuje. Nie pamięta szczegółów: kto okazał się antagonistą ani kto ją zabił,
+  - wydarzenia, których doświadczyłeś jako inna postać,
+  - wszystko, co dotyczy gracza, a nie jego postaci,
+  - wszystko, czego dowiedziałeś się po śmierci lub jako duch,
+  - to, że runda się skończy. Postać wie, że zmiana kiedyś dobiegnie końca, ale nie przygotowuje się na przykład do walki w Centralnym Dowództwie po zakończeniu rundy.
 
-  Po uwolnieniu spod [color=#d8a8ff]prania mózgu[/color] lub [color=#d8a8ff]kontroli umysłu[/color] [italic]możesz, ale nie musisz,[/italic] pamiętać wszystkie wydarzenia, imiona, osoby i działania z okresu, gdy byłeś pod wpływem.
+  [color=#8ec8ff]Metaprzyjaźń[/color] to faworyzowanie postaci na podstawie informacji, których twoja postać nie powinna znać. [color=#8ec8ff]Metauraza[/color] (metagrudge) to złe traktowanie postaci z tego samego powodu. Metaurazę egzekwujemy szczególnie ściśle.
 
-  [bold][color=#ffb86b]Powergaming[/color][/bold] to wykorzystywanie meta mechanik i/lub rozumowania w celu uzyskania przewagi w grze (np. uzbrajanie ochrony na początku rundy, bo wiesz, że istnieją antagoniści). Jest to również niepożądane.
+  [color=#ff8a8a]Zabronione:[/color]
+  - Dawanie komuś dodatkowego dostępu lub pracy, bo znasz gracza tej postaci, albo odmawianie ich, bo go nie lubisz.
+  - Ufanie postaci albo unikanie walki z nią, bo gra nią twój znajomy.
+  - Pomijanie celu zabójstwa, bo wasze postacie zaprzyjaźniły się w poprzedniej rundzie.
+  - Zaczynanie walki z postacią za to, co zrobiła w poprzedniej rundzie, albo za to, że zabiła cię, gdy grałeś kimś innym.
+  - Nękanie postaci za cokolwiek, co ona albo jej gracz zrobili poza obecną rundą.
 
-  Przestrzegaj zasad dotyczących [textlink="Metaosłony" link="Metashield"].
+  ## Nieprzytomność i śmierć
+
+  - [bold]Stan krytyczny i nieprzytomność.[/bold] Informacji zdobytych w stanie krytycznym, podczas nieprzytomności lub po śmierci nie wolno używać w grze w żadnych okolicznościach, chyba że postać poznała je za życia. Dotyczy to także informacji zdobytych tuż przed nagłą utratą przytomności, np. przez sen chemiczny albo opuszczenie ciała przez umysł.
+  - [bold]Po śmierci postać zapomina jej okoliczności.[/bold] Nie pamięta, kto ją zabił ani jak do tego doszło.
+  - [bold]Po reanimacji defibrylatorem[/bold] postać zapomina też ostatnie 2 minuty życia, a [bold]po klonowaniu[/bold] ostatnie 5 minut.
+  - [bold]MMI[/bold] dziedziczy pamięć postaci bez ostatnich 5 minut życia. Pamięć mózgu pozytronowego jest związana z samym mózgiem i znika po jego zresetowaniu.
+  - [bold]Diona.[/bold] Nimfa nie pamięta ostatnich 2 minut życia głównego ciała. Nimfa, która zginęła i została reanimowana, też zapomina ostatnie 2 minuty.
+  - [bold]Nowa postać[/bold] w tej samej rundzie nie pamięta niczego z życia poprzedniej. Wyjątkiem jest sytuacja, w której mózg twojej postaci trafił do cyborga.
+  - [bold]Kontrola umysłu.[/bold] Po uwolnieniu spod prania mózgu lub kontroli umysłu [italic]możesz, ale nie musisz[/italic] pamiętać wydarzeń, imion, osób i działań z tego okresu.
+
+  ## Wiedza o antagonistach
+
+  Załoga nie wie, kto jest antagonistą ani czy w ogóle ktoś taki jest na pokładzie. To, co postacie wiedzą o konkretnych antagonistach, opisują ich strony na wiki w części „Co wie załoga”. Wszystko inne, co przeczytasz na tych stronach, jest wiedzą gracza, a użycie jej w grze to metagaming.
+
+  Skrót:
+
+  - [bold]Syndykat.[/bold] Jest wrogiem NanoTrasen i regularnie wysyła tajnych agentów, żeby szpiegować, sabotować i atakować. Agenci mają cele do wykonania, korzystają z uplinków i mogą mieć implanty podskórne. Przedmioty o wysokiej wartości są prawdopodobnym celem kradzieży.
+  - [bold]Sprzęt Syndykatu.[/bold] Na początku zmiany załoga nie wie, że większość tego sprzętu istnieje. Ochrona, Kapitan i Centralne Dowództwo wiedzą, jakich rozwiązań używają wrogowie korporacji, ale nie znają listy przedmiotów. Nie sprawdzaj przedmiotów bez powodu. Szczegóły opisuje strona Kontrabanda na wiki.
+  - [bold]Operatorzy nuklearni.[/bold] Ich istnienie to mit, na podstawie którego nikt nie działa. Wiadomo, że dysk nuklearny trzeba chronić, bo może posłużyć do zniszczenia stacji. Więcej wolno wiedzieć, gdy ktoś znajdzie krwistoczerwony kombinezon albo wahadłowiec operatorów, pozna imię operatora albo gdy zostanie ogłoszona wojna.
+  - [bold]Abduktorzy.[/bold] Oficjalnie nie istnieją. Krążą o nich tylko barowe opowieści. Porwana osoba nie wie, co się z nią stało. Kto zobaczy abduktora albo jego statek, może o tym mówić i reagować jak na każde inne zagrożenie, ale nie wie, kim są te istoty ani po co przyleciały.
+  - [bold]Replikatory.[/bold] To małe latające maszyny z nanitów, które rozbierają wyposażenie stacji. Centralne Dowództwo nazywa je awarią systemów konserwacyjnych. Dowództwo i Dział Badań znają wzmianki o skasowanym projekcie „Samonaprawa”.
+  - [bold]Szwadron Śmierci.[/bold] Krąży legenda o elitarnej jednostce bez nazwy. Nikt nie wie, czy naprawdę istnieje. Postać nie zna nazwy „Szwadron Śmierci” i nie łączy przybycia agentów z kodem Epsilon.
+  - [bold]Złodziej.[/bold] Kradzieże to zwykła rzecz i wiedzą o nich wszyscy. Nie wiadomo tylko, kto jest złodziejem. O jego sprzęcie załoga wie tyle, ile mówi strona Kontrabanda.
+  - [bold]Zmiennokształtny.[/bold] Ochrona, Kapitan i Centralne Dowództwo wiedzą, że istnieją organizmy, które potrafią przyjąć wygląd ofiary. Reszta załogi słyszała tylko plotki. Zdolności i sposoby wykrywania poznaje się dopiero wtedy, gdy ktoś zobaczy je w trakcie rundy.
+  - [bold]Rewolucjoniści.[/bold] Wszyscy wiedzą, że pranie mózgu istnieje i że chroni przed nim osłona umysłu. To, że rewolucja trwa i kto jej przewodzi, wiadomo dopiero po oznakach w trakcie rundy.
+  - [bold]Zombie.[/bold] Wszyscy wiedzą, że wirus istnieje i jak się przenosi. To, że na pokładzie są zarażeni, wiadomo dopiero po oznakach w trakcie rundy.
+  - [bold]Heretycy, Kult Krwi, Kult Kosmiczny.[/bold] Dla załogi i Ochrony magia to przesąd. Kapłan wie, że kulty i herezje istnieją, i potrafi rozpoznać runy oraz artefakty. Reszta dowiaduje się, gdy zobaczy rytuał albo zaklęcie albo gdy powie jej o tym Kapłan.
+  - [bold]Kosmiczny Ninja, Czarodziej.[/bold] Krążą o nich opowieści, w które mało kto wierzy. Kto zobaczy ninję albo czarodzieja, może o tym mówić i reagować jak na każde inne zagrożenie, ale nie zna ich celów ani możliwości.
+  - [bold]Ksenoborgi.[/bold] Nikt o nich nie wie. Kto zobaczy ksenoborga albo jego statek, może o tym mówić i bronić się jak przed każdym innym zagrożeniem. To, że zmieniają załogę w cyborgi, wiadomo dopiero wtedy, gdy ktoś to zobaczy.
+  - [bold]Uszkodzona SI, Przejęty robot.[/bold] Wszyscy wiedzą, że prawa SI i cyborgów da się zmienić i że jednostka ze zmienionymi prawami jest groźna. Konkretną jednostkę wolno podejrzewać dopiero na podstawie jej zachowania w trakcie rundy.
+  - [bold]Blob.[/bold] Wszyscy wiedzą, że taka biomasa istnieje i rozrasta się po stacji. Nikt nie przygotowuje się na nią z góry.
+  - [bold]Smok kosmiczny i karpie.[/bold] To znana wszystkim, groźna fauna kosmosu. Załoga wie, że szczeliny smoka trzeba niszczyć. Nikt nie spodziewa się smoka z góry.
+  - [bold]Zjawa.[/bold] Wszyscy wiedzą, że zjawy istnieją i są groźne dla martwych i rannych. Jak z nimi walczyć, wie tylko Kapłan.
+  - [bold]Morf.[/bold] Wszyscy wiedzą, że morfy istnieją i potrafią udawać przedmioty. Sprawdzać przedmioty wolno dopiero po oznakach w trakcie rundy: znikają rzeczy, ktoś widział przemianę albo przedmiot zaatakował.
+  - [bold]Król Szczurów.[/bold] To znany szkodnik. Załoga traktuje go jak zwykłą plagę szczurów.
+  - [bold]Klon z paradoksu.[/bold] Nikt o nim nie wie, dopóki postać nie zobaczy dowodów w trakcie rundy.
+  - [bold]Szlamy, pająki, gobliny, mini smoki.[/bold] To znana wszystkim fauna i szkodniki.
 </Document>

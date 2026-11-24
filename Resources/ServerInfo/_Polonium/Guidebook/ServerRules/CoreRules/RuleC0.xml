@@ -11,10 +11,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <Document>
   # Zasady rozgrywki
 
-  [italic]Zasady Rozgrywki (R) obowiązują w grze przez cały czas, również pomiędzy rundami. Należy również przestrzegać [textlink="Zasad Społeczności" link="CommunityRules"].[/italic]
+  [italic]Zasady Rozgrywki (R) obowiązują w grze przez cały czas, również pomiędzy rundami. Obowiązują też [textlink="Zasady Społeczności" link="CommunityRules"].[/italic]
 
   - [textlink="0. Software i błędy" link="RuleC00"]
-  - [textlink="1. Nie bądź dupkiem" link="RuleC1"]
+  - [textlink="1. Nie psuj gry innym" link="RuleC1"]
   - [textlink="2. Używaj wyłącznie języka polskiego" link="RuleC2"]
   - [textlink="3. Wymagana dojrzałość i kultura osobista" link="RuleC3"]
   - [textlink="4. Administratorzy mają ostatnie słowo" link="RuleC4"]
@@ -25,6 +25,26 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - [textlink="9. Ochrona i Dowództwo podlegają wyższym standardom" link="RuleC9"]
   - [textlink="10. Graj antagonistami odpowiedzialnie" link="RuleC10"]
   - [textlink="11. Szanuj immersję innych graczy" link="RuleC11"]
+  - [textlink="12. Szanuj graczy w stanie SSD" link="RuleC12"]
 
   Gracze SI Stacji i Cyborgów stosują dodatkowo zasady z wpisu [textlink="Jednostki syntetyczne" link="SyntheticsSOP"]. Mają one moc Regulaminu.
+
+  ## Sprawy postaci a sprawy graczy
+
+  Na stacji obowiązują dwa rodzaje przepisów.
+
+  - [bold]Prawo Kosmiczne i SPO[/bold] to przepisy świata gry. Ich łamaniem zajmują się postacie: Ochrona, przełożony albo Dowództwo. Karą jest upomnienie, areszt, degradacja lub zwolnienie.
+  - [bold]Regulamin[/bold] to zasady dla graczy. Jego łamaniem zajmuje się administracja.
+
+  Złamanie Prawa Kosmicznego albo SPO [bold]samo w sobie nie łamie Regulaminu[/bold]. Administracja reaguje dopiero wtedy, gdy to samo zachowanie narusza którąś z zasad powyżej, najczęściej R1, R8, R9 albo R10.
+
+  [color=#7dffa8]Sprawa postaci (IC):[/color]
+  - Lekarz przesiaduje w barze, zamiast leczyć.
+  - Pasażer podkłada mydło pod nogi funkcjonariuszowi na patrolu.
+  - Inżynier pyskuje Kapitanowi i odmawia wykonania polecenia.
+
+  [color=#ff8a8a]Sprawa dla administracji:[/color]
+  - Ktoś niszczy stację albo bije ludzi bez powodu (R1).
+  - Funkcjonariusz Ochrony przez całą zmianę ignoruje wezwania (R9).
+  - Agent Syndykatu zabija każdego, kogo spotka (R10).
 </Document>

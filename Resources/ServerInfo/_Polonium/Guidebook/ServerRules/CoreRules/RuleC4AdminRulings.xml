@@ -8,9 +8,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <Document>
   # R4 - Administratorzy mają ostatnie słowo
 
-  [italic]Administratorzy są zaufanymi wolontariuszami[/italic] i jako tacy mają jednocześnie wiele obowiązków i swobody. Podejmują decyzje dotyczące egzekwowania i interpretacji zasad zgodnie z polityką serwera i mogą egzekwować niektóre zasady bardziej rygorystycznie w zależności od potrzeb serwera w danym momencie.
+  [italic]Administratorzy są zaufanymi wolontariuszami[/italic] i mają zarówno wiele obowiązków, jak i sporo swobody. Egzekwują i interpretują zasady zgodnie z polityką serwera i mogą egzekwować niektóre z nich bardziej rygorystycznie, jeśli w danej chwili wymaga tego dobro serwera.
 
-  W przypadku otrzymania [color=#ff8a8a]bana[/color] lub [color=#ff8a8a]blokady roli (roleban)[/color], należy złożyć odwołanie za pośrednictwem ticketów w odpowiednim kanale na Discordzie, zamiast kontynuować spór poprzez system Ahelp lub narzekać na publicznych czatach Discorda.
+  Interpretacja nie może jednak zakazywać tego, na co Regulamin wprost pozwala, na przykład swobody roli ([textlink="R6" link="RuleC6"]) i drobnych psot ([textlink="R1" link="RuleC1"]). Administrator, który interweniuje, wskazuje zasadę, na którą się powołuje.
 
-  [color=#8ec8ff]Jeśli uważasz, że decyzja administratora jest nieuzasadniona lub że nadużywa on swojej pozycji, możesz złożyć skargę na administratora[/color] wysyłając prywatną wiadomość do Lead Administratora lub poprosić o wyjaśnienie zasad na Discordzie.
+  Po otrzymaniu [color=#ff8a8a]bana[/color] lub [color=#ff8a8a]blokady roli (roleban)[/color] złóż odwołanie w tickecie na odpowiednim kanale Discorda. Nie kontynuuj sporu w Ahelp i nie narzekaj na publicznych czatach.
+
+  [color=#8ec8ff]Jeśli uważasz, że decyzja administratora jest nieuzasadniona albo że nadużywa on swojej pozycji, możesz złożyć skargę na administratora, napisać prywatną wiadomość do Lead Administratora albo poprosić na Discordzie o wyjaśnienie zasad.[/color]
 </Document>

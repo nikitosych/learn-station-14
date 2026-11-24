@@ -11,17 +11,15 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   [italic]Celem antagonisty jest przede wszystkim tworzenie konfliktu (zabawy!!) na stacji.[/italic]
 
-  Ogólnie powinieneś realizować swoje cele i unikać nabijania liczby zabójstw jako tajny agent. [bold][color=#ff8a8a]Murderboning[/color][/bold] jest zabawny tylko dla osoby, która to robi. Nie dotyczy to niektórych antagonistów ([color=#ffb86b]Operatorów Nuklearnych[/color], [color=#ffb86b]smoków kosmicznych[/color]).
+  - [bold]Realizuj swoje cele[/bold] i nie nabijaj liczby zabójstw. [bold][color=#ff8a8a]Murderboning[/color][/bold] bawi tylko tego, kto go robi. Nie dotyczy to niektórych antagonistów, np. [color=#ffb86b]Operatorów nuklearnych[/color] i [color=#ffb86b]smoków kosmicznych[/color].
+  - [bold]Jeśli nie chcesz grać antagonistą albo musisz wyjść z gry,[/bold] napisz wcześniej do administracji przez Ahelp, żeby rola mogła trafić do innego gracza. Antagonistów zespołowych (Operatorzy nuklearni, Główni Rewolucjoniści itd.) obowiązuje to zawsze.
+  - [color=#ffb86b]Samotni antagoniści[/color] (Agenci Syndykatu, Heretycy, Zmiennokształtni) nie muszą współpracować ani ze sobą, ani z innymi antagonistami. [color=#ffb86b]Antagoniści zespołowi[/color] (Operatorzy nuklearni, zombie, rewolucjoniści) współpracują zawsze.
+  - [bold][color=#ff8a8a]Masowe niszczenie stacji[/color][/bold] (wypuszczenie osobliwości, maxcapy itd.) jest zarezerwowane dla antagonistów, którzy z założenia kończą rundę, takich jak Operatorzy nuklearni. Zwykły Agent Syndykatu ani inny antagonista nie robi tego bez wcześniejszej zgody administracji. Dotyczy to także wysadzania promu ewakuacyjnego.
 
-  [color=#8ec8ff]Murderboning[/color] – sytuacja, w której antagonista dąży do wyeliminowania jak największej liczby osób na stacji, ignorując swoje oficjalne cele misji. Zamiast realizować zadania, taki gracz zmienia rundę w jednoosobowy Deathmatch, zabijając każdego, kto wejdzie mu w pole widzenia.
+  [color=#8ec8ff]Murderboning[/color] – sytuacja, w której antagonista próbuje zabić jak najwięcej osób i ignoruje swoje cele. Zamiast wykonywać zadania, zmienia rundę w jednoosobowy deathmatch i zabija każdego, kto wejdzie mu w pole widzenia.
 
-  [color=#ffb86b]Antagoniści drużynowi[/color] (Operatorzy Nuklearni, przywódcy Rewolucji itd.) powinni zgłosić się do administracji przed opuszczeniem gry, aby ich miejsce mogło zostać zajęte.
+  ## Zombie
 
-  [color=#ffb86b]Samotni antagoniści[/color] (Zdrajcy, Heretycy, Changelingi) nie muszą współpracować ze sobą ani z innymi antagonistami drużynowymi/samotnymi. [color=#ffb86b]Antagoniści drużynowi[/color] (op. nuklearni, zombie, rewolucjoniści) muszą zawsze współpracować.
-
-  [bold][color=#ff8a8a]Masowe niszczenie stacji[/color][/bold] (wypuszczanie osobliwości, maxcapy itd.) jest zarezerwowane dla antagonistów, którzy domyślnie kończą rundę, takich jak Operatorzy Nuklearni, i nie powinno być wykonywane przez zwykłego traitora lub innego antagonistę bez wcześniejszego zgłoszenia do administracji. Dotyczy to także bombardowania wahadłowca.
-
-  Początkowo zainfekowani (przed przemianą) mogą podejmować wszelkie działania zwiększające szanse na przejęcie stacji i mogą pomagać w rozprzestrzenianiu wirusa zombie. Działania powodujące jawne szkody dla stacji i załogi są niedozwolone, jeśli nie pomagają w rozprzestrzenianiu wirusa po przemianie (np. uwolnienie głównych silników, zalanie atmosferą itd.).
-
-  Po przemianie [color=#ffb86b]zombie[/color] nie mogą w żadnym wypadku niszczyć kluczowych elementów stacji, takich jak źródła zasilania, elektronika, rury dystrybucyjne czy okablowanie.
+  - [bold]Początkowi zarażeni przed przemianą[/bold] mogą robić wszystko, co zwiększa szansę na przejęcie stacji, i pomagać w roznoszeniu wirusa. Jawne szkodzenie stacji i załodze, które po przemianie nie pomoże roznosić wirusa (np. uwolnienie głównego silnika albo zalanie stacji gazami), jest zabronione.
+  - [bold]Po przemianie[/bold] [color=#ffb86b]zombie[/color] w żadnym wypadku nie niszczą kluczowych elementów stacji: źródeł zasilania, elektroniki, rur dystrybucyjnych ani okablowania.
 </Document>
